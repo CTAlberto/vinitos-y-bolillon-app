@@ -39,27 +39,27 @@ La web permite a los usuarios explorar diferentes **cursos de cata de vinos** or
 2. Instala las dependencias de Composer:
 
     ```bash
-composer install
+    composer install
 
 3. Configura las variables de entorno en el archivo .env (crear a partir de .env.example):
 
     ```bash
-cp .env.example .env
+    cp .env.example .env
 
 4. Genera la clave de aplicación:
 
     ```bash
-php artisan key:generate
+    php artisan key:generate
 
 5. Ejecuta las migraciones para crear las tablas en la base de datos:
 
     ```bash
-php artisan migrate
+    php artisan migrate
 
 6. Si usas un servidor local para pruebas, ejecuta el siguiente comando:
 
     ```bash
-php artisan serve
+    php artisan serve
 
 7. Accede a la web a través de http://localhost:8000.
 
