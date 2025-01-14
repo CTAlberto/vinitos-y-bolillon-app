@@ -1,66 +1,66 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+Proyecto Web de Cursos de Cata de Vinos
+Este proyecto es una web desarrollada por 4 compañeros de Desarrollo de Aplicaciones Web (DAW) para una profesora de hostelería. La aplicación tiene como objetivo proporcionar una plataforma para la impartición de cursos de cata de vinos y permitir a los usuarios acceder a información detallada sobre los cursos disponibles, así como realizar consultas y ponerse en contacto.
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Descripción
+La web permite a los usuarios explorar diferentes cursos de cata de vinos organizados por localización y duración. Además, incluye funcionalidades como formulario de contacto, reseñas de usuarios, y un dashboard para que el empresario (la profesora) pueda gestionar los cursos y las consultas recibidas.
 
-## About Laravel
+Funcionalidades principales:
+Academia de formación de vino con cursos de cata en distintas localizaciones.
+Página de detalles del curso con información sobre duración, maestro y formulario de contacto.
+Formulario de contacto con envío al correo de la profesora.
+Reseñas de usuarios para valorar los cursos.
+Portada con carrusel de cursos destacados.
+Enlace a WhatsApp para contacto rápido.
+Dashboard para el empresario (sin autenticación para clientes).
+Tecnologías utilizadas:
+Backend: Laravel
+Frontend: TailwindCSS / Bootstrap 5
+Base de datos: MySQL
+Librerías adicionales:
+Laravel Breeze (autenticación para el dashboard).
+Axios (para solicitudes AJAX).
+AOS (para animaciones al hacer scroll).
+Instalación
+Clona este repositorio en tu máquina local:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+bash
+Copiar código
+git clone https://github.com/tu_usuario/nombre_repositorio.git
+cd nombre_repositorio
+Instala las dependencias de Composer:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+bash
+Copiar código
+composer install
+Configura las variables de entorno en el archivo .env (crear a partir de .env.example):
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+bash
+Copiar código
+cp .env.example .env
+Genera la clave de aplicación:
 
-## Learning Laravel
+bash
+Copiar código
+php artisan key:generate
+Ejecuta las migraciones para crear las tablas en la base de datos:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+bash
+Copiar código
+php artisan migrate
+Si usas un servidor local para pruebas, ejecuta el siguiente comando:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+bash
+Copiar código
+php artisan serve
+Accede a la web a través de http://localhost:8000.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Contribuciones
+Si deseas contribuir al proyecto, por favor sigue estos pasos:
 
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Haz un fork del repositorio.
+Crea una nueva rama (git checkout -b feature/mi-nueva-funcionalidad).
+Realiza tus cambios y haz commit (git commit -am 'Agregada nueva funcionalidad').
+Haz push a tu rama (git push origin feature/mi-nueva-funcionalidad).
+Abre un Pull Request.
+Licencia
+Este proyecto está bajo la Licencia Pública General GNU (GPL). Puedes modificar y distribuir el código bajo los términos de la GPL.
