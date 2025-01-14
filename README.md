@@ -40,23 +40,28 @@ La web permite a los usuarios explorar diferentes **cursos de cata de vinos** or
 
     ```bash
 composer install
-Configura las variables de entorno en el archivo .env (crear a partir de .env.example):
+
+3. Configura las variables de entorno en el archivo .env (crear a partir de .env.example):
 
     ```bash
 cp .env.example .env
-Genera la clave de aplicación:
+
+4. Genera la clave de aplicación:
 
     ```bash
 php artisan key:generate
-Ejecuta las migraciones para crear las tablas en la base de datos:
+
+5. Ejecuta las migraciones para crear las tablas en la base de datos:
 
     ```bash
 php artisan migrate
-Si usas un servidor local para pruebas, ejecuta el siguiente comando:
+
+6. Si usas un servidor local para pruebas, ejecuta el siguiente comando:
 
     ```bash
 php artisan serve
-Accede a la web a través de http://localhost:8000.
+
+7. Accede a la web a través de http://localhost:8000.
 
 ## Licencia
 Este proyecto está bajo la Licencia Pública General GNU (GPL). Puedes modificar y distribuir el código bajo los términos de la GPL.
