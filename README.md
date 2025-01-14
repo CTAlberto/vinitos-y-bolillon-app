@@ -25,7 +25,11 @@ La web permite a los usuarios explorar diferentes **cursos de cata de vinos** or
   - Laravel Breeze (autenticación para el dashboard).
   - Axios (para solicitudes AJAX).
   - AOS (para animaciones al hacer scroll).
-
+### Versiones
+- **PHP 8.2.12**
+- **Composer v2.8.1**
+- **Node v20.14.0**
+- **Laravel 11.37.0**
 ---
 
 ## Instalación
@@ -33,15 +37,22 @@ La web permite a los usuarios explorar diferentes **cursos de cata de vinos** or
 1. Clona este repositorio en tu máquina local:
 
    ```bash
-   git clone https://github.com/tu_usuario/nombre_repositorio.git
-   cd nombre_repositorio
+   git clone https://github.com/CTAlberto/vinitos-y-bolillon-app
+   cd vinitos-y-bolillon-app
 
-2. Instala las dependencias de Composer:
+2. Instala las dependencias//Breeze(blade->yes->0):
 
     ```bash
     composer install
+    npm install
+    composer require laravel/breeze
+    php artisan breeze:install 
+    npm install aos --save
+    npm install alpinejs
+    npm install axios
+    composer require spatie/laravel-backup
 
-3. Configura las variables de entorno en el archivo .env (crear a partir de .env.example):
+3. Configura las variables de entorno en el archivo .env (crear a partir de .env.example/Solicitar a los creadores):
 
     ```bash
     cp .env.example .env
@@ -51,7 +62,7 @@ La web permite a los usuarios explorar diferentes **cursos de cata de vinos** or
     ```bash
     php artisan key:generate
 
-5. Ejecuta las migraciones para crear las tablas en la base de datos:
+5. Ejecuta las migraciones(Solo para primeras instalaciones):
 
     ```bash
     php artisan migrate
