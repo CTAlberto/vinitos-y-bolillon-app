@@ -65,10 +65,10 @@ La web permite a los usuarios explorar diferentes **cursos de cata de vinos** or
 
 ## Desarrolladores
 
-**Rafael Navarro Villar**
-**Jesús Rubio Mesa**
-**Carlos Aguilar García**
-**Alberto Cuberos Távora**
+- **Rafael Navarro Villar**
+- **Jesús Rubio Mesa**
+- **Carlos Aguilar García**
+- **Alberto Cuberos Távora**
 
 ## Licencia
 Este proyecto está bajo la Licencia Pública General GNU (GPL). Puedes modificar y distribuir el código bajo los términos de la GPL.
