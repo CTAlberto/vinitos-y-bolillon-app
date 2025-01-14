@@ -4,7 +4,7 @@ Este proyecto es una **web** desarrollada por 4 compañeros de **Desarrollo de A
 
 ## Descripción
 
-La web permite a los usuarios explorar diferentes **cursos de cata de vinos** organizados por **localización** y **duración**. Además, incluye funcionalidades como **formulario de contacto**, **reseñas de usuarios**, y un **dashboard** para que el empresario (la profesora) pueda gestionar los cursos y las consultas recibidas.  
+La web permite a los usuarios explorar diferentes **cursos de cata de vinos** organizados por **localización** y **duración**. Además, incluye funcionalidades como **formulario de contacto** y un **dashboard** para que el empresario (la profesora) pueda gestionar los cursos y las consultas recibidas.
 
 ### Funcionalidades principales:
 
@@ -62,6 +62,13 @@ La web permite a los usuarios explorar diferentes **cursos de cata de vinos** or
     php artisan serve
 
 7. Accede a la web a través de http://localhost:8000.
+
+## Desarrolladores
+
+**Rafael Navarro Villar**
+**Jesús Rubio Mesa**
+**Carlos Aguilar García**
+**Alberto Cuberos Távora**
 
 ## Licencia
 Este proyecto está bajo la Licencia Pública General GNU (GPL). Puedes modificar y distribuir el código bajo los términos de la GPL.
