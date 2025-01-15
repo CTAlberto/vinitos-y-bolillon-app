@@ -13,7 +13,7 @@ use App\Http\Controllers\AdminContactoController;
 Route::get('/', function () {
     return view('welcome'); // Portada o página principal
 });
-
+//Probando probando
 Route::get('/cursos', [CursoController::class, 'index'])->name('cursos.index'); // Listado de cursos
 Route::get('/cursos/{id}', [CursoController::class, 'show'])->name('cursos.show'); // Detalle de curso
 
