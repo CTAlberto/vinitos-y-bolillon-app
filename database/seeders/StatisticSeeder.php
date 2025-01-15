@@ -2,22 +2,17 @@
 
 namespace Database\Seeders;
 
-use App\Models\Statistic;
 use Illuminate\Database\Seeder;
+use App\Models\Statistic;
 
 class StatisticSeeder extends Seeder
 {
     public function run()
     {
         Statistic::create([
-            'page' => 'Inicio',
-            'visits' => 150,
-        ]);
-
-        Statistic::create([
-            'page' => 'Cursos',
-            'visits' => 120,
+            'id_event' => 1,
+            'attendance' => 10,
+            'applicants' => 15,
         ]);
     }
 }
-
