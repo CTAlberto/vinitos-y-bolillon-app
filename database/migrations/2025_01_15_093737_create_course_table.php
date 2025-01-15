@@ -19,13 +19,15 @@ return new class extends Migration
             $table->date('start_date');
             $table->integer('duration');
             $table->string('image')->nullable();
+            $table->unsignedTinyInteger('is_active')->default(1); // Campo tinyint(1) para activar/desactivar
             $table->timestamps();
         });
-
+    
+        // Llama al seeder
         $this->call(CourseSeeder::class);
-        
     }
-
+    
+    
     /**
      * Reverse the migrations.
      */
