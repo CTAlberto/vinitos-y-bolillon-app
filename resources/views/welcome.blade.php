@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bienvenido</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,54 +14,55 @@
             margin: 0;
             padding: 0;
         }
-        header {
-            background-color: #343a40;
-            color: #fff;
-            padding: 10px 20px;
-            text-align: center;
-        }
-        nav {
-            margin: 20px;
-            text-align: center;
-        }
-        nav a {
-            color: #343a40;
-            text-decoration: none;
-            margin: 0 10px;
-            font-weight: bold;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        footer {
-            text-align: center;
-            margin-top: 30px;
-            color: #6c757d;
-        }
+       
     </style>
+    @include('components.header')
 </head>
 <body>
     <header>
-        <h1>Bienvenido a Nuestra Academia de Vino</h1>
+        
     </header>
 
     <nav>
-        <a href="{{ url('/cursos') }}">Cursos</a>
-        <a href="{{ url('/sobre-nosotros') }}">Sobre Nosotros</a>
-        <a href="{{ url('/contacto') }}">Contacto</a>
-        <a href="{{ url('/catas') }}">Catas</a>
-        <a href="{{ url('/politica-de-privacidad') }}">Política de Privacidad</a>
-        <a href="{{ url('/terminos-y-condiciones') }}">Términos y Condiciones</a>
+
+        
     </nav>
 
     <section style="text-align: center; margin: 20px;">
-        <p>
-            Explora nuestros cursos especializados en vino, conoce más sobre nuestra misión y agenda, o ponte en contacto con nosotros para más información.
-        </p>
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+            <img src="{{ asset('img/vino2.jpg') }}" class="d-block w-100">
+            
+            </div>
+            <div class="carousel-item">
+                <img src="{{ asset('img/vino3.jpg') }}" class="d-block w-100" alt="Segunda Imagen">
+            </div>
+            <div class="carousel-item">
+                <img src="{{ asset('img/vino4.jpg') }}" class="d-block w-100" alt="Tercera Imagen">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Siguiente</span>
+        </button>
+    </div>
     </section>
 
     <footer>
         &copy; {{ date('Y') }} Academia de Vino. Todos los derechos reservados.
     </footer>
 </body>
+
+@include('components.footer')
 </html>
+
