@@ -13,14 +13,8 @@ return new class extends Migration
     {
         Schema::create('instructors', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('bio')->nullable();
-            $table->string('photo')->nullable();
-            $table->string('speciality');
-            $table->string('contact_email')->unique();
             $table->timestamps();
         });
-        
     }
 
     /**
