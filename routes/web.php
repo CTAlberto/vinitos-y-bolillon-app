@@ -37,7 +37,7 @@ Route::get('/terminos-y-condiciones', function () {
 Route::get('/cursos/{id}/reseñas', [ResenaController::class, 'index'])->name('cursos.reseñas'); // Reseñas de curso
 
 // **Admin Routes**
-Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function () {
+Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('/', function () {
         return view('admin'); // Panel de administración
     })->name('admin.dashboard');
