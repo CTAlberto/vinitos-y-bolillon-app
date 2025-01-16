@@ -46,8 +46,8 @@ class CategoryResource extends Resource
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make()->label('Eliminar Seleccion'),
-                ])->label('Acciones'),
+                    Tables\Actions\DeleteBulkAction::make(),
+                ]),
             ]);
     }
 
