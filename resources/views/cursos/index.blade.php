@@ -1,3 +1,5 @@
+@extends('layouts.app')
+@section('main-content')
 <?php
 
 ?>
@@ -18,3 +20,4 @@
     <li>{{ $curso->language }}</li>
     @endforeach
 </ul>
+@endsection
