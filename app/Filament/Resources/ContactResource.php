@@ -18,7 +18,7 @@ class ContactResource extends Resource
 {
     protected static ?string $model = Contact::class;
     protected static ?string $modelLabel = 'Contacto';
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-m-bookmark-square';
 
     public static function form(Form $form): Form
     {
@@ -31,13 +31,13 @@ class ContactResource extends Resource
                 Forms\Components\TextInput::make('email')
                     ->required()
                     ->maxLength(50)
+                    ->email()
                     ->label('Email'),
                 Forms\Components\Textarea::make('reason')
                     ->required()
                     ->label('Mensaje'),
                 TextInput::make('tel')
                     ->tel()
-                    ->telRegex('/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\.\/0-9]*$/')
                     ->label('Teléfono')
                     ->placeholder('Ej: +34 123 456 789'),
                 Select::make('event_id')
@@ -72,6 +72,10 @@ class ContactResource extends Resource
                 Tables\Columns\TextColumn::make('event.title_event')
                     ->searchable()
                     ->label('Evento'),
+                TextColumn::make('reason')
+                    ->label('Mensaje'),
+                TextColumn::make('event.ini_date')
+                    ->label('Fecha inicio'),
                 TextColumn::make('validation')
                     ->badge()
                     ->color(fn(string $state): string => match ($state) {

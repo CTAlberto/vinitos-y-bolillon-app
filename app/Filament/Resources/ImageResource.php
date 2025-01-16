@@ -16,8 +16,10 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class ImageResource extends Resource
 {
     protected static ?string $model = Image::class;
+    protected static ?string $modelLabel = 'Imagen';
+    protected static ?string $pluralModelLabel = 'Imagenes';
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-m-bookmark-square';
 
     public static function form(Form $form): Form
     {
