@@ -8,7 +8,8 @@
     </div>
     <div style="width: 50px; height: 50px; border-radius: 50%; background-color: #e6e6e6; display: flex; align-items: center; justify-content: center;">
         <span style="font-size: 14px; font-weight: bold; color: black;">
-        <img src="{{ url('img/vino-logo.jpg') }}" alt="Vino Logo" style="height: 50px; border-radius: 50%; vertical-align: middle; margin-left: -30px;">
+        <img src="{{ Vite::asset('resources/img/vino-logo.jpg') }}" alt="Vino Logo" style="height: 50px; border-radius: 50%; vertical-align: middle; margin-left: -30px;">
+
 
         </span>
     </div>
