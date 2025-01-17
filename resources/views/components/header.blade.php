@@ -1,39 +1,54 @@
-<!-- filepath: /c:/Users/jrubi/Documents/DAW/vinitos-y-bolillon-app/resources/views/components/header.blade.php -->
-<header class="border-bottom bg-white fixed-top">
-    <div class="container d-flex justify-content-between align-items-center py-3">
+<header class="bg-white fixed-top w-full border-b">
+    <div class="container mx-auto flex justify-between items-center py-3 px-4 md:px-8">
         <!-- Logotipo y Nombre de la Academia -->
-        <div class="d-flex align-items-center" style="margin-right: 2rem;">
+        <div class="flex items-center space-x-4">
             <!-- Logotipo -->
             <a href="/">
-                <img src="{{ Vite::asset('resources/img/logotipo.png') }}" alt="Logotipo" class="block w-full h-full" style="height: 35px; margin-right: 1.5rem;">
+                <img src="{{ Vite::asset('resources/img/logotipo.png') }}" alt="Logotipo" class="h-9">
             </a>
             <!-- Nombre de la Academia -->
-            <h1 class="m-0" style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: black; white-space: nowrap;">
+            <h1 class="text-xl font-serif font-bold text-black whitespace-nowrap">
                 South Wines Academy
             </h1>
         </div>
+        
         <!-- Menú de Navegación -->
-        <nav>
-            <ul class="nav m-0">
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="/">Inicio</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="/cursos">Cursos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="/catas">Catas</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="/sobre-nosotros">Sobre Nosotros</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="/empresas">Empresa</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="/contacto">Contacto</a>
-                </li>
+        <nav class="hidden md:block">
+            <ul class="flex space-x-6">
+                <li><a class="text-dark hover:text-[#7b1228]" href="/">Inicio</a></li>
+                <li><a class="text-dark hover:text-[#7b1228]" href="/cursos">Cursos</a></li>
+                <li><a class="text-dark hover:text-[#7b1228]" href="/catas">Catas</a></li>
+                <li><a class="text-dark hover:text-[#7b1228]" href="/sobre-nosotros">Sobre Nosotros</a></li>
+                <li><a class="text-dark hover:text-[#7b1228]" href="/empresas">Empresa</a></li>
+                <li><a class="text-dark hover:text-[#7b1228]" href="/contacto">Contacto</a></li>
             </ul>
         </nav>
+
+        <!-- Menú para pantallas pequeñas (hamburger) -->
+        <button id="menu-toggle" class="md:hidden text-2xl text-[#7b1228]">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+
+    <!-- Menú desplegable en pantallas pequeñas -->
+    <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white shadow-lg">
+        <ul class="space-y-4 py-4 px-4">
+            <li><a class="text-dark hover:text-[#7b1228]" href="/">Inicio</a></li>
+            <li><a class="text-dark hover:text-[#7b1228]" href="/cursos">Cursos</a></li>
+            <li><a class="text-dark hover:text-[#7b1228]" href="/catas">Catas</a></li>
+            <li><a class="text-dark hover:text-[#7b1228]" href="/sobre-nosotros">Sobre Nosotros</a></li>
+            <li><a class="text-dark hover:text-[#7b1228]" href="/empresas">Empresa</a></li>
+            <li><a class="text-dark hover:text-[#7b1228]" href="/contacto">Contacto</a></li>
+        </ul>
     </div>
 </header>
+
+<script>
+    // Script para mostrar/ocultar el menú en pantallas pequeñas
+    const menuToggle = document.getElementById("menu-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    menuToggle.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+    });
+</script>
