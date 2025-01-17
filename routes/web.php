@@ -13,7 +13,7 @@ use App\Http\Controllers\AdminContactoController;
 Route::get('/', function () {
     return view('welcome'); // Portada o página principal
 });
-
+//Probando probando
 Route::get('/cursos', [CursoController::class, 'index'])->name('cursos.index'); // Listado de cursos
 Route::get('/cursos/{id}', [CursoController::class, 'show'])->name('cursos.show'); // Detalle de curso
 
@@ -37,7 +37,7 @@ Route::get('/terminos-y-condiciones', function () {
 Route::get('/cursos/{id}/reseñas', [ResenaController::class, 'index'])->name('cursos.reseñas'); // Reseñas de curso
 
 // **Admin Routes**
-Route::prefix('admin')->middleware(['auth'])->group(function () {
+/*Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('/', function () {
         return view('admin'); // Panel de administración
     })->name('admin.dashboard');
@@ -56,6 +56,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+});*/
 
 require __DIR__.'/auth.php';
