@@ -1,3 +1,5 @@
+@extends('layouts.app')
+@section('main-content')
 <h1>Contacto</h1>
 <form method="POST" action="/contacto">
     @csrf
@@ -6,3 +8,4 @@
     <button type="submit">Enviar</button>
 </form>
 
+@endsection
