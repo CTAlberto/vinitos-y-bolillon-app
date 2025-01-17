@@ -9,7 +9,7 @@ class Event extends Model
     use HasFactory;
 
     protected $fillable = [
-        'id_category', 'title_event', 'subtitle', 'description', 'content', 'requirements', 
+        'id_category', 'title_event', 'subtitle', 'description', 'content', 'requirements',
         'ini_date', 'end_date', 'price', 'location', 'capacity', 'language'
     ];
 
