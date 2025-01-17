@@ -25,7 +25,17 @@ class InstructorResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\TextInput::make('name')
+                    ->required()
+                    ->maxLength(50)
+                    ->label('Nombre'),
+                Forms\Components\TextInput::make('surname')
+                    ->required()
+                    ->maxLength(50)
+                    ->label('Apellido'),
+                Forms\Components\Textarea::make('bio')
+                    ->required()
+                    ->label('Biografía'),
             ]);
     }
 
@@ -33,7 +43,16 @@ class InstructorResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('name')
+                    ->searchable()
+                    ->label('Nombre'),
+                Tables\Columns\TextColumn::make('surname')
+                    ->searchable()
+                    ->label('Apellido'),
+                Tables\Columns\TextColumn::make('bio')
+                    ->label('Biografía'),
+                Tables\Columns\TextColumn::make('language')
+                    ->label('Idioma'),
             ])
             ->filters([
                 //

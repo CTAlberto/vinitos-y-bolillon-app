@@ -36,7 +36,7 @@ class EventResource extends Resource
                 Select::make('id_category')
                     ->label('Categoría')
                     ->relationship('category', 'name')
-                    ->required(), 
+                    ->required(),
                 Forms\Components\TextInput::make('title_event')
                     ->required()
                     ->maxLength(200)
@@ -93,7 +93,7 @@ class EventResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('instructors.name')  
+                TextColumn::make('instructors.name')
                     ->searchable()
                     ->label('Instructores'),
                 TextColumn::make('category.name')
@@ -110,11 +110,13 @@ class EventResource extends Resource
                     ->label('Descripción'),
                 TextColumn::make('ini_date')
                     ->searchable()
-                    ->label('Fecha de inicio'),
+                    ->label('Fecha de inicio')
+                    ->formatStateUsing(fn ($state) => \Carbon\Carbon::parse($state)->translatedFormat('l, d F Y - H:i')),
                 TextColumn::make('end_date')
                     ->searchable()
-                    ->label('Fecha de fin'),
-                TextColumn::make('price')   
+                    ->label('Fecha de fin')
+                    ->formatStateUsing(fn ($state) => \Carbon\Carbon::parse($state)->translatedFormat('l, d F Y - H:i')),
+                TextColumn::make('price')
                     ->searchable()
                     ->label('Precio'),
                 TextColumn::make('location')
