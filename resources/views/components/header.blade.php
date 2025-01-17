@@ -1,3 +1,4 @@
+@vite(['resources/css/app.css', 'resources/js/app.js'])
 <header class="bg-white fixed-top w-full border-b">
     <div class="container mx-auto flex justify-between items-center py-3 px-4 md:px-8">
         <!-- Logotipo y Nombre de la Academia -->
@@ -43,12 +44,4 @@
     </div>
 </header>
 
-<script>
-    // Script para mostrar/ocultar el menú en pantallas pequeñas
-    const menuToggle = document.getElementById("menu-toggle");
-    const mobileMenu = document.getElementById("mobile-menu");
 
-    menuToggle.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-    });
-</script>
