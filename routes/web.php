@@ -8,6 +8,7 @@ use App\Http\Controllers\CataController;
 use App\Http\Controllers\ResenaController;
 use App\Http\Controllers\AdminCursoController;
 use App\Http\Controllers\AdminContactoController;
+use App\Http\Controllers\SobreNosotrosController;
 
 // **Frontend Routes**
 Route::get('/', function () {
@@ -17,9 +18,8 @@ Route::get('/', function () {
 Route::get('/cursos', [CursoController::class, 'index'])->name('cursos.index'); // Listado de cursos
 Route::get('/cursos/{id}', [CursoController::class, 'show'])->name('cursos.show'); // Detalle de curso
 
-Route::get('/sobre-nosotros', function () {
-    return view('sobre-nosotros'); // Página estática "Sobre nosotros"
-})->name('sobre-nosotros');
+Route::get('/sobre-nosotros', [SobreNosotrosController::class, 'index'])->name('sobre-nosotros');
+
 
 Route::get('/contacto', [ContactoController::class, 'index'])->name('contacto.index'); // Página de contacto
 Route::post('/contacto', [ContactoController::class, 'store'])->name('contacto.store');
