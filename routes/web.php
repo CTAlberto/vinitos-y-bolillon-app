@@ -37,6 +37,8 @@ Route::get('/terminos-y-condiciones', function () {
 })->name('terminos-condiciones');
 
 Route::get('/cursos/{id}/reseñas', [ResenaController::class, 'index'])->name('cursos.reseñas'); // Reseñas de curso
+Route::get('/inscribirse/{id}', [CursoController::class, 'inscribirse'])->name('inscribirse');
+
 
 // **Admin Routes**
 /*Route::prefix('admin')->middleware(['auth'])->group(function () {
