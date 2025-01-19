@@ -84,7 +84,7 @@
 
 
 <!-- Sección de Servicios -->
-<div class="container mx-auto mt-20 mb-20" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+<div class="container mx-auto" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
     <h2 class="text-3xl font-bold text-center mb-10">Nuestros Servicios</h2>
     <div class="flex gap-8">
 
