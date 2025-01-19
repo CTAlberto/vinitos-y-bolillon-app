@@ -10,7 +10,7 @@
             <div class="carousel-item active relative float-left w-full">
                 <img src="{{ Vite::asset('resources/img/grapes-4290308_1280.jpg') }}" class="block w-full h-96 object-cover" alt="Vino 2">
                 <div class="carousel-caption absolute bottom-0.5 left-0 flex flex-col items-start justify-start bg-opacity-75 p-6">
-                    <h5 class="text-xl font-bold text-gray-100 bg-gray-800 bg-opacity-50 px-4 py-2 rounded">Vino Exquisito</h5>
+                    <h5 class="text-xl font-bold text-gray-100 bg-gray-800 bg-opacity-50 px-4 py-2 rounded">Vino exquisito</h5>
                     <p class="mt-2 text-gray-200 bg-gray-800 bg-opacity-50 px-4 py-2 rounded">Descubre los mejores vinos del mundo.</p>
                 </div>
             </div>
@@ -19,7 +19,7 @@
             <div class="carousel-item relative float-left w-full">
                 <img src="{{ Vite::asset('resources/img/wine-2626092_1280.jpg') }}" class="block w-full h-96 object-cover" alt="Vino 3">
                 <div class="carousel-caption absolute bottom-0.5 left-0 flex flex-col items-start justify-start bg-opacity-75 p-6">
-                    <h5 class="text-xl font-bold text-gray-100 bg-gray-800 bg-opacity-50 px-4 py-2 rounded">La Mejor Selección</h5>
+                    <h5 class="text-xl font-bold text-gray-100 bg-gray-800 bg-opacity-50 px-4 py-2 rounded">La mejor selección</h5>
                     <p class="mt-2 text-gray-200 bg-gray-800 bg-opacity-50 px-4 py-2 rounded">Solo lo mejor para nuestros clientes.</p>
                 </div>
             </div>
@@ -28,7 +28,7 @@
             <div class="carousel-item relative float-left w-full">
                 <img src="{{ Vite::asset('resources/img/bottles-50573_1280.jpg') }}" class="block w-full h-96 object-cover" alt="Vino 4">
                 <div class="carousel-caption absolute bottom-0.5 left-0 flex flex-col items-start justify-start bg-opacity-75 p-6">
-                    <h5 class="text-xl font-bold text-gray-100 bg-gray-800 bg-opacity-50 px-4 py-2 rounded">Un Toque de Elegancia</h5>
+                    <h5 class="text-xl font-bold text-gray-100 bg-gray-800 bg-opacity-50 px-4 py-2 rounded">Un toque de elegancia</h5>
                     <p class="mt-2 text-gray-200 bg-gray-800 bg-opacity-50 px-4 py-2 rounded">Cada botella, una experiencia única.</p>
                 </div>
             </div>
@@ -49,14 +49,14 @@
 <!-- Sección Sobre Nosotros con animación -->
 <div class="container mx-auto mt-10 mb-10 bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300 p-6 rounded-lg shadow-lg" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
     <div class="flex items-center justify-between space-x-8">
-        <!-- Texto a la izquierda -->
+        
         <div class="w-full md:w-1/2 p-6">
             <h2 class="text-4xl font-bold text-gray-800 mb-6">Sobre Nosotros</h2>
             <p class="text-lg text-gray-700 leading-relaxed">
             Somos una empresa dedicada a la venta y distribución de vinos de alta calidad. Nuestro compromiso es ofrecer a nuestros clientes una experiencia única, brindando los mejores productos y servicios.
             </p>
         </div>
-        <!-- Imagen a la derecha -->
+        
         <div class="w-full md:w-1/2 p-6">
             <img src="{{ Vite::asset('resources/img/wine-786933_1280.jpg') }}" alt="Sobre Nosotros" class="w-full h-auto rounded-lg shadow-lg">
         </div>
@@ -66,11 +66,11 @@
 <!-- Sección Nuestro Producto con animación -->
 <div class="container mx-auto mt-10 mb-10 bg-gradient-to-r from-gray-300 via-gray-200 to-gray-100 p-6 rounded-lg shadow-lg" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
     <div class="flex items-center justify-between space-x-8">
-        <!-- Imagen a la izquierda -->
+        
         <div class="w-full md:w-1/2 p-6">
             <img src="{{ Vite::asset('resources/img/grapes-957324_1280.jpg') }}" alt="Nuestro Producto" class="w-full h-auto rounded-lg shadow-lg">
         </div>
-        <!-- Texto a la derecha -->
+       
         <div class="w-full md:w-1/2 p-6">
             <h2 class="text-4xl font-bold text-gray-800 mb-6">Nuestro Producto</h2>
             <p class="text-lg text-gray-700 leading-relaxed">

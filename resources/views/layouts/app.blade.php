@@ -14,19 +14,17 @@
         <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
         
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
             <x-header />
 
-           
             <div class="flex-grow w-full h-full p-0 bg-gradient-to-b from-gray-300 via-gray-100 to-gray-200">
-                <x-main-content>
                     @yield('main-content')
-                </x-main-content>
             </div>
+            
         </div>
-
         <x-footer />
     </body>
 </html>
