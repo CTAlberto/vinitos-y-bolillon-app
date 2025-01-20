@@ -9,6 +9,7 @@ use App\Http\Controllers\ResenaController;
 use App\Http\Controllers\AdminCursoController;
 use App\Http\Controllers\AdminContactoController;
 use App\Http\Controllers\SobreNosotrosController;
+use App\Http\Controllers\EmpresaController;
 
 // **Frontend Routes**
 Route::get('/', function () {
@@ -38,6 +39,12 @@ Route::get('/terminos-y-condiciones', function () {
 
 Route::get('/cursos/{id}/reseñas', [ResenaController::class, 'index'])->name('cursos.reseñas'); // Reseñas de curso
 Route::get('/inscribirse/{id}', [CursoController::class, 'inscribirse'])->name('inscribirse');
+
+
+
+Route::get('/empresas', [EmpresaController::class, 'index'])->name('empresas.index');
+Route::get('/empresas/{id}', [EmpresaController::class, 'show'])->name('empresas.evento');
+
 
 
 // **Admin Routes**
