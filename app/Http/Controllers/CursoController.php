@@ -10,7 +10,7 @@ class CursoController extends Controller
     public function index()
     {
         $cursos = Event::all(); // Obtenemos los eventos
-        dd($cursos); // Muestra los datos en pantalla y detiene la ejecución
+       
         return view('cursos.index', compact('cursos'));
     }
     
