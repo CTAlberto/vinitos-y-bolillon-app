@@ -27,13 +27,14 @@
             <div class="p-3" style="background-color: #f8f9fa; border-radius: 8px;" data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
                 <div class="row g-3 align-items-center">
                     <!-- Imagen del curso -->
-                    <img src="{{ Vite::asset('resources/img/grapes-4290308_1280.jpg') }}" class="block w-full h-96 object-cover" alt="Vino 2">
+                    
 
-                    <!--<div class="col-md-4" data-aos="fade-right">
-                        <img src="{{ asset('images/cursos/' . $curso->image) }}" alt="{{ $curso->title_event }}" 
+                    <div class="col-md-4" data-aos="fade-right">
+                        <img src="{{ Vite::asset('resources/img/grapes-4290308_1280.jpg') }}" class="block w-full h-96 object-cover" alt="Vino 2">
+                        <!--<img src="{{ asset('images/cursos/' . $curso->image) }}" alt="{{ $curso->title_event }}" 
                              class="img-fluid rounded" 
-                             style="object-fit: cover; height: 100%; width: 100%; border-radius: 8px;">
-                    </div>-->
+                             style="object-fit: cover; height: 100%; width: 100%; border-radius: 8px;">-->
+                    </div>
                     <!-- Contenido del curso -->
                     <div class="col-md-8" data-aos="fade-left">
                         <h5 class="card-title" style="font-weight: 600; color: #333;">{{ $curso->title_event }}</h5>
