@@ -2,16 +2,16 @@
 <header class="bg-white fixed-top w-full border-b">
     <div class="container mx-auto flex justify-between items-center py-3 px-4 md:px-8">
         <!-- Logotipo y Nombre de la Academia -->
-        <div class="flex items-center space-x-4">
-            <!-- Logotipo -->
-            <a href="/">
-                <img src="{{ Vite::asset('resources/img/logotipo.png') }}" alt="Logotipo" class="h-9">
-            </a>
-            <!-- Nombre de la Academia -->
-            <h1 class="text-xl font-serif font-bold text-black whitespace-nowrap">
-                South Wines Academy
-            </h1>
-        </div>
+        <div class="flex items-center">
+    <a href="/" class="flex-shrink-0">
+            <img src="{{ Vite::asset('resources/img/logotipo.png') }}" alt="Logotipo" style="max-height: 48px; min-height: 32px; height: auto;">
+        </a>
+        <h1 class="text-xl font-serif font-bold text-black whitespace-nowrap ml-3">
+            South Wines Academy
+        </h1>
+    </div>
+
+
         
         <!-- Menú de Navegación -->
         <nav class="hidden md:block">
