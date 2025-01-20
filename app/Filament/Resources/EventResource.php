@@ -3,7 +3,6 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\EventResource\Pages;
-use App\Filament\Resources\EventResource\RelationManagers;
 use App\Models\Event;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -11,11 +10,12 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\DateTimePicker;
-use Filament\Forms\Components\TimePicker;
 use Illuminate\Support\HtmlString;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Forms\Components\CheckboxList;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\TextArea;
 
 
 
@@ -30,31 +30,31 @@ class EventResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\CheckboxList::make('instructor')
+                CheckboxList::make('instructor')
                     ->relationship('instructors', 'name')
                     ->label('Instructores'),
                 Select::make('id_category')
                     ->label('Categoría')
                     ->relationship('category', 'name')
                     ->required(),
-                Forms\Components\TextInput::make('title_event')
+                TextInput::make('title_event')
                     ->required()
                     ->maxLength(200)
                     ->label('Título del evento'),
-                Forms\Components\Textarea::make(name:'subtitle')
+                Textarea::make(name:'subtitle')
                     ->required()
                     ->maxLength(250)
                     ->label('Subtitulo'),
-                Forms\Components\Textarea::make('description')
+                Textarea::make('description')
                     ->required()
                     ->helperText(new HtmlString('Your <strong>full name</strong> here, including any middle names.'))
                     ->label('Descripción'),
-                Forms\Components\TextArea::make('content')
+                TextArea::make('content')
                     ->required()
                     ->helperText('Formato CSV, separado por punto y coma')
                     ->placeholder('Ej: El Proceso de Vinificación;Elegir el vino adecuado;Etiquetas: Como leerlas')
                     ->label('Contenido'),
-                Forms\Components\TextArea::make('requirements')
+                TextArea::make('requirements')
                     ->required()
                     ->placeholder('Ej: Mayor de edad;Conocimientos previos en cata;Traer botella de agua')
                     ->label('Requisitos'),
@@ -64,15 +64,15 @@ class EventResource extends Resource
                 DateTimePicker::make('end_date')
                     ->required()
                     ->label('Fecha de fin'),
-                Forms\Components\TextInput::make('location')
+                TextInput::make('location')
                     ->required()
                     ->label('Lugar'),
-                Forms\Components\TextInput::make('price')
+                TextInput::make('price')
                     ->required()
                     ->numeric()
                     ->suffix('€')
                     ->label('Precio'),
-                Forms\Components\TextInput::make('capacity')
+                TextInput::make('capacity')
                     ->required()
                     ->integer()
                     ->label('Capacidad'),
@@ -102,22 +102,20 @@ class EventResource extends Resource
                 TextColumn::make('title_event')
                     ->searchable()
                     ->label('Título del evento'),
-                TextColumn::make('subtitle')
-                    ->searchable()
-                    ->label('Subtitulo'),
-                TextColumn::make('description')
-                    ->searchable()
-                    ->label('Descripción'),
                 TextColumn::make('ini_date')
                     ->searchable()
                     ->label('Fecha de inicio')
-                    ->formatStateUsing(fn ($state) => \Carbon\Carbon::parse($state)->translatedFormat('l, d F Y - H:i')),
+                    ->formatStateUsing(fn ($state) => \Carbon\Carbon::parse($state)->translatedFormat('d F Y - H:i')),
                 TextColumn::make('end_date')
                     ->searchable()
+                    ->sortable()
                     ->label('Fecha de fin')
-                    ->formatStateUsing(fn ($state) => \Carbon\Carbon::parse($state)->translatedFormat('l, d F Y - H:i')),
+                    ->formatStateUsing(fn ($state) => \Carbon\Carbon::parse($state)->translatedFormat('d F Y - H:i')),
                 TextColumn::make('price')
                     ->searchable()
+                    ->numeric()
+
+                    ->suffix('€')
                     ->label('Precio'),
                 TextColumn::make('location')
                     ->searchable()
@@ -134,7 +132,7 @@ class EventResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\ViewAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

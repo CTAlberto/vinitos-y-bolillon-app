@@ -2,8 +2,8 @@
 
 namespace App\Filament\Resources;
 
+use Filament\Tables\Filters\SelectFilter;
 use App\Filament\Resources\ContactResource\Pages;
-use App\Filament\Resources\ContactResource\RelationManagers;
 use App\Models\Contact;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -13,6 +13,8 @@ use Filament\Tables\Table;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Select;
+use Filament\Support\Enums\IconPosition;
+
 
 class ContactResource extends Resource
 {
@@ -35,6 +37,8 @@ class ContactResource extends Resource
                     ->label('Email'),
                 Forms\Components\Textarea::make('reason')
                     ->required()
+                    ->placeholder('Ej: Me gustaría asistir al evento')
+                    ->maxLength(255)
                     ->label('Mensaje'),
                 TextInput::make('tel')
                     ->tel()
@@ -51,7 +55,7 @@ class ContactResource extends Resource
                         'accept' => 'Aceptado',
                         'pending' => 'Pendiente',
                         'refused' => 'Rechazado',
-                    ])
+                    ])->default('pending')
                     ->required()
             ]);
     }
@@ -60,41 +64,46 @@ class ContactResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name')
+                TextColumn::make('name')
                     ->searchable()
                     ->label('Nombre'),
-                Tables\Columns\TextColumn::make('email')
+                TextColumn::make('email')
                     ->searchable()
-                    ->label('Email'),
-                Tables\Columns\TextColumn::make('tel')
+                    ->icon('heroicon-m-envelope')
+                    ->label('Email')
+                    ->copyable()
+                    ->copyMessage('Email address copied')
+                    ->iconPosition(IconPosition::After)
+                    ->copyMessageDuration(1500),
+                TextColumn::make('tel')
                     ->searchable()
+                    ->icon('heroicon-m-phone')
+                    ->iconPosition(IconPosition::After)
                     ->label('Teléfono'),
-                Tables\Columns\TextColumn::make('event.title_event')
-                    ->searchable()
-                    ->label('Evento'),
-                TextColumn::make('reason')
-                    ->label('Mensaje'),
-                TextColumn::make('event.ini_date')
-                    ->label('Fecha inicio'),
                 TextColumn::make('validation')
                     ->badge()
                     ->color(fn(string $state): string => match ($state) {
                         'pending' => 'warning',
                         'accept' => 'success',
-                        'rejected' => 'danger',
+                        'refused' => 'danger',
                     })
                     ->formatStateUsing(fn(string $state): string => match ($state) {
                         'pending' => 'Pendiente',
                         'accept' => 'Aceptado',
-                        'rejected' => 'Rechazado',
+                        'refused' => 'Rechazado',
                         default => $state, // Por si llega un estado inesperado
                     })
             ])
             ->filters([
-                //
+                SelectFilter::make('validation')
+                    ->options([
+                        'pending' => 'Pendiente',
+                        'accept' => 'Aceptado',
+                        'refused' => 'Rechazado',
+                    ]),
+
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
