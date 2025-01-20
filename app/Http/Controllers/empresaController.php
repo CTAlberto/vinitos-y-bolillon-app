@@ -7,19 +7,26 @@ use Illuminate\Http\Request;
 
 class EmpresaController extends Controller
 {
-    public function index()
-    {
-        // Obtener todos los eventos (catas y cursos)
-        $eventos = Event::with('category')->get();
+    public function index(Request $request)
+{
+    // Obtener todos los eventos
+    $events = Event::with('category'); // Cargar la relación con category
 
-        return view('empresa.index', compact('eventos'));
+    // Si se pasa un parámetro 'category_id', filtrar los eventos por esa categoría
+    if ($request->has('category_id')) {
+        $events = $events->where('fk_id_category', $request->category_id);
     }
 
-    public function show($id)
-    {
-        // Mostrar detalles de un evento
-        $evento = Event::with('category')->findOrFail($id);
+    // Obtener los eventos después de aplicar el filtro (si hay)
+    $events = $events->get();
 
-        return view('empresa.show', compact('evento'));
-    }
+    return view('empresa.index', compact('events'));
+}
+
+
+public function show($id)
+{
+    $event = Event::with(['category', 'instructors'])->findOrFail($id);
+    return view('empresa.show', compact('event'));
+}
 }
