@@ -9,9 +9,12 @@ class CursoController extends Controller
 {
     public function index()
     {
-        // Lógica para mostrar la lista de cursos
-        return view('cursos.index')->with('cursos', Event::all());
+        $cursos = Event::all(); // Obtenemos los eventos
+       
+        return view('cursos.index', compact('cursos'));
     }
+    
+
 
     public function show($id)
     {

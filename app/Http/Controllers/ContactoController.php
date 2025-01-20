@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Contact;
+use App\Models\Event;
 
 class ContactoController extends Controller
 {
     public function index()
     {
+        $cursos = Event::all();
         // Lógica para mostrar la página de contacto
-        return view('contacto.index');
+        return view('contacto.index', compact('cursos'));
     }
     public function store(Request $request)
     {
