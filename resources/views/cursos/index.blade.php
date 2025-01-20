@@ -1,13 +1,12 @@
 @extends('layouts.app')
 
 @section('main-content')
-<div class="container mt-5" style="margin-top: 50px;">
+<div class="container pt-32 mt-5" style="margin-top: 50px;">
     <!-- Tarjeta de descripción general -->
     <div class="mb-5 p-4 text-center" style="background-color: #f8f9fa; border-radius: 8px;" data-aos="fade-up">
         <div class="row align-items-center justify-content-center">
-            
             <div class="col-md-8" data-aos="fade-left">
-                <h2 style="font-weight: bold; color: #333; text-align: center;">Aprende de los Mejores</h2>
+                <h2 style="font-weight: bold; color: #333; text-align: center; margin-bottom: 7px;">Aprende de los Mejores</h2>
                 <p class="text-muted" style="font-size: 1.1rem; line-height: 1.6; text-align: center;">
                     Nuestros cursos te ofrecen experiencias educativas únicas, con horarios flexibles y múltiples localizaciones. Ya seas un principiante o un profesional, encontrarás un curso que se ajuste a tus necesidades.
                 </p>
@@ -27,8 +26,6 @@
             <div class="p-3" style="background-color: #f8f9fa; border-radius: 8px;" data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
                 <div class="row g-3 align-items-center">
                     <!-- Imagen del curso -->
-                    
-
                     <div class="col-md-4" data-aos="fade-right">
                         <img src="{{ Vite::asset('resources/img/grapes-4290308_1280.jpg') }}" class="block w-full h-96 object-cover" alt="Vino 2">
                         <!--<img src="{{ asset('images/cursos/' . $curso->image) }}" alt="{{ $curso->title_event }}" 

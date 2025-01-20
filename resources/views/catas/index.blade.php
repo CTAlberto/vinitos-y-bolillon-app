@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
 @section('main-content')
-<div class="container mt-5" style="margin-top: 50px;">
-<div class="mb-5 p-4 text-center" style="background-color: #f8f9fa; border-radius: 8px;" data-aos="fade-up">
+<div class="container pt-32 mt-5" style="margin-top: 50px;">
+    <div class="mb-5 p-4 text-center" style="background-color: #f8f9fa; border-radius: 8px;" data-aos="fade-up">
         <div class="row align-items-center justify-content-center">
-            
-            <div class="col-md-8" data-aos="fade-left">
-                <h2 style="font-weight: bold; color: #333; text-align: center;">Aprende a catar</h2>
+            <class="col-md-8" data-aos="fade-left">
+                <h2 style="font-weight: bold; color: #333; text-align: center; margin-bottom: 7px;">Aprende a catar</h2>
+                
                 <p class="text-muted" style="font-size: 1.1rem; line-height: 1.6; text-align: center;">
-                Nuestras catas te brindan experiencias sensoriales únicas, ideales para descubrir y disfrutar del fascinante mundo de los sabores y aromas. Con horarios flexibles y ubicaciones variadas, nuestras catas están diseñadas tanto para principiantes como para conocedores, asegurando que encuentres la experiencia perfecta para tu paladar.
+                    Nuestras catas te brindan experiencias sensoriales únicas, ideales para descubrir y disfrutar del fascinante mundo de los sabores y aromas. Con horarios flexibles y ubicaciones variadas, nuestras catas están diseñadas tanto para principiantes como para conocedores, asegurando que encuentres la experiencia perfecta para tu paladar.
                 </p>
                 <p class="text-muted" style="font-size: 1rem; text-align: center;">
                     <i class="bi bi-clock-fill" style="color: #ff6f61;"></i> Horarios personalizables &nbsp;&bull;&nbsp; 
@@ -17,6 +17,7 @@
             </div>
         </div>
     </div>
+
     <!-- Listado de catas -->
     <h1 class="text-center mb-5" style="font-weight: bold; color: #333;" data-aos="fade-up">Listado de Catas</h1>
     <div class="row">
@@ -53,4 +54,3 @@
     </div>
 </div>
 @endsection
-

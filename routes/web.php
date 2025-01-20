@@ -26,6 +26,7 @@ Route::get('/contacto', [ContactoController::class, 'index'])->name('contacto.in
 Route::post('/contacto', [ContactoController::class, 'store'])->name('contacto.store');
 
 
+
 Route::get('/catas', [CataController::class, 'index'])->name('catas.index'); // Listado de catas
 Route::get('/catas/{id}', [CataController::class, 'show'])->name('catas.show'); // Detalle de cata
 
