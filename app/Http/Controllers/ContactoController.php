@@ -12,7 +12,7 @@ class ContactoController extends Controller
     {
         $cursos = Event::all();
         // Lógica para mostrar la página de contacto
-        return view('contacto.index');
+        return view('contacto.index', compact('cursos'));
     }
     public function store(Request $request)
     {

@@ -10,8 +10,7 @@ class CataController extends Controller
     public function index()
     {
 
-        // Lógica para mostrar la lista de catas
-        return view('catas.index');
+        return view('catas.index')->with('catas', Event::all());
     }
 
     public function show($id)
