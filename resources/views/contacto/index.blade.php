@@ -46,9 +46,9 @@
                         <label for="event_id" class="block text-sm font-medium text-gray-600">Evento:</label>
                         <select id="event_id" x-model="form.event_id" required
                             class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
-                            <option value="1">Evento 1</option>
-                            <option value="2">Evento 2</option>
-                            <option value="3">Evento 3</option>
+                            @foreach($cursos as $curso)
+                                <option value="{{ $curso->id }}">{{ $curso->title_event }}</option>
+                            @endforeach
                         </select>
                     </div>
 
@@ -112,6 +112,5 @@
     </script>
 </body>
 </html>
-
 
 @endsection
