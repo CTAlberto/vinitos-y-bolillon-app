@@ -8,10 +8,7 @@
 
             <!-- Primer slide -->
             <div class="carousel-item active relative float-left w-full">
-                <video class="block w-full h-96 object-cover" autoplay loop muted>
-                    <source src="{{ Vite::asset('resources/videos/84226-586657520_small.mp4') }}" type="video/mp4">
-                    Tu navegador no soporta el elemento de video.
-                </video>
+                <img src="{{ Vite::asset('resources/img/grapes-4290308_1280.jpg') }}" class="block w-full h-96 object-cover" alt="Vino 2">
                 <div class="carousel-caption absolute bottom-0.5 left-0 flex flex-col items-start justify-start bg-opacity-75 p-6">
                     <h5 class="text-xl font-bold text-gray-100 bg-gray-800 bg-opacity-50 px-4 py-2 rounded">Vino exquisito</h5>
                     <p class="mt-2 text-gray-200 bg-gray-800 bg-opacity-50 px-4 py-2 rounded">Descubre los mejores vinos del mundo.</p>
@@ -20,10 +17,7 @@
 
             <!-- Segundo slide -->
             <div class="carousel-item relative float-left w-full">
-                <video class="block w-full h-96 object-cover" autoplay loop muted>
-                    <source src="{{ Vite::asset('resources/videos/130690-748155705_small.mp4') }}" type="video/mp4">
-                    Tu navegador no soporta el elemento de video.
-                </video>
+                <img src="{{ Vite::asset('resources/img/wine-2626092_1280.jpg') }}" class="block w-full h-96 object-cover" alt="Vino 3">
                 <div class="carousel-caption absolute bottom-0.5 left-0 flex flex-col items-start justify-start bg-opacity-75 p-6">
                     <h5 class="text-xl font-bold text-gray-100 bg-gray-800 bg-opacity-50 px-4 py-2 rounded">La mejor selección</h5>
                     <p class="mt-2 text-gray-200 bg-gray-800 bg-opacity-50 px-4 py-2 rounded">Solo lo mejor para nuestros clientes.</p>
@@ -32,10 +26,7 @@
 
             <!-- Tercer slide -->
             <div class="carousel-item relative float-left w-full">
-                <video class="block w-full h-96 object-cover" autoplay loop muted>
-                    <source src="{{ Vite::asset('resources/videos/135643-762117669_small.mp4') }}" type="video/mp4">
-                    Tu navegador no soporta el elemento de video.
-                </video>
+                <img src="{{ Vite::asset('resources/img/bottles-50573_1280.jpg') }}" class="block w-full h-96 object-cover" alt="Vino 4">
                 <div class="carousel-caption absolute bottom-0.5 left-0 flex flex-col items-start justify-start bg-opacity-75 p-6">
                     <h5 class="text-xl font-bold text-gray-100 bg-gray-800 bg-opacity-50 px-4 py-2 rounded">Un toque de elegancia</h5>
                     <p class="mt-2 text-gray-200 bg-gray-800 bg-opacity-50 px-4 py-2 rounded">Cada botella, una experiencia única.</p>
@@ -88,6 +79,9 @@
         </div>
     </div>
 </div>
+
+
+
 
 <!-- Sección de Servicios -->
 <div class="container mx-auto" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
