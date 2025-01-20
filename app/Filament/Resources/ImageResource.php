@@ -10,10 +10,16 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Filament\Forms\Components\Toggle;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Components\FileUpload;
-use Filament\Tables\Columns\ImageColumn;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Filters\SelectFilter;
+
+
 
 class ImageResource extends Resource
 {
@@ -27,22 +33,24 @@ class ImageResource extends Resource
     {
         return $form
             ->schema([
-                FileUpload::make('name')
-                    ->label('Imagen')
-                    ->image()
-                    ->imageEditor()
-                    ->directory('images')
-                    ->disk('public')
-                    ->visibility('public'),
-                Forms\Components\Select::make('event.tittle_event')
+
+                    FileUpload::make('name')
+                        ->label('Archivo de imagen')
+                        ->image()
+                        ->directory('images')
+                        ->visibility('public')
+                        ->required(),
+
+                    Forms\Components\Select::make('fk_id') // Este campo es la clave foránea en la tabla `images`
                     ->label('Evento')
-                    ->relationship('event', 'title_event')
-                    ->required(),
-                Toggle::make('is_active')
-                    ->label('Estado')
-                    ->onIcon('heroicon-m-check-circle')
-                    ->offIcon('heroicon-c-eye-slash')
-            ]);
+                    ->relationship('event', 'title_event') // Relación definida en el modelo
+                    ->required(), // El campo es obligatorio
+
+
+                    Toggle::make('is_active')
+                        ->label('Activo')
+                        ->default(true),
+                ]);
 
     }
 
@@ -66,7 +74,17 @@ class ImageResource extends Resource
                     ->boolean()
             ])
             ->filters([
-                //
+                SelectFilter::make('event_id')
+                ->label('Evento')
+                ->relationship('event', 'title_event') // Define la relación con la tabla `events`
+                ->placeholder('Todos los eventos'),
+
+                SelectFilter::make('is_active')
+                    ->label('Activo')
+                    ->options([
+                        1 => 'Activo',
+                        0 => 'Inactivo',
+                    ]),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
@@ -80,9 +98,7 @@ class ImageResource extends Resource
 
     public static function getRelations(): array
     {
-        return [
-            //
-        ];
+        return [];
     }
 
     public static function getPages(): array

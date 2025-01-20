@@ -8,6 +8,8 @@ use App\Http\Controllers\CataController;
 use App\Http\Controllers\ResenaController;
 use App\Http\Controllers\AdminCursoController;
 use App\Http\Controllers\AdminContactoController;
+use App\Http\Controllers\SobreNosotrosController;
+use App\Http\Controllers\EmpresaController;
 
 // **Frontend Routes**
 Route::get('/', function () {
@@ -17,12 +19,12 @@ Route::get('/', function () {
 Route::get('/cursos', [CursoController::class, 'index'])->name('cursos.index'); // Listado de cursos
 Route::get('/cursos/{id}', [CursoController::class, 'show'])->name('cursos.show'); // Detalle de curso
 
-Route::get('/sobre-nosotros', function () {
-    return view('sobre-nosotros'); // Página estática "Sobre nosotros"
-})->name('sobre-nosotros');
+Route::get('/sobre-nosotros', [SobreNosotrosController::class, 'index'])->name('sobre-nosotros');
+
 
 Route::get('/contacto', [ContactoController::class, 'index'])->name('contacto.index'); // Página de contacto
 Route::post('/contacto', [ContactoController::class, 'store'])->name('contacto.store');
+
 
 
 Route::get('/catas', [CataController::class, 'index'])->name('catas.index'); // Listado de catas
@@ -37,6 +39,13 @@ Route::get('/terminos-y-condiciones', function () {
 })->name('terminos-condiciones');
 
 Route::get('/cursos/{id}/reseñas', [ResenaController::class, 'index'])->name('cursos.reseñas'); // Reseñas de curso
+Route::get('/inscribirse/{id}', [CursoController::class, 'inscribirse'])->name('inscribirse');
+
+Route::get('/empresas', [EmpresaController::class, 'index'])->name('empresas.index');
+Route::get('/empresas/{id}', [EmpresaController::class, 'show'])->name('empresas.evento');
+
+
+
 
 // **Admin Routes**
 /*Route::prefix('admin')->middleware(['auth'])->group(function () {
