@@ -118,4 +118,19 @@
 </div>
 </div>
 
+<div id="map" style="height:280px;"></div>
+<script>
+    var map = L.map('map').setView([37.39118345901626, -6.000890322464233], 13);
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+
+
+    var marker = L.marker([37.39118345901626, -6.000890322464233]).addTo(map);
+
+
+</script>
+
 @endsection
