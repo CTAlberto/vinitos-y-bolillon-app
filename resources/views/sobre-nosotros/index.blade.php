@@ -2,7 +2,7 @@
 
 @section('main-content')
 <!-- Contenedor principal -->
-<div class="container mx-auto px-4 lg:px-20" data-aos="fade-up" data-aos-duration="1000">
+<div class="container mx-auto px-4 lg:px-20 pt-32" data-aos="fade-up" data-aos-duration="1000">
     <!-- Título principal -->
     <div class="text-center mb-12" data-aos="fade-down" data-aos-duration="1000">
         <h1 class="text-5xl font-bold text-gray-800 mb-4">Sobre Nosotros</h1>
