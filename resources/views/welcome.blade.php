@@ -131,6 +131,6 @@
     var marker = L.marker([37.39118345901626, -6.000890322464233]).addTo(map);
 
 
-</script>
+</script> <!-- End of map -->
 
 @endsection
