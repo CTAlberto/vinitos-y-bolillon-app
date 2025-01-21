@@ -23,15 +23,15 @@
                     <div class="mt-12 space-y-8">
                         <h2 class="text-2xl font-bold text-gray-800 text-center">Preguntas Frecuentes</h2>
                         <div class="space-y-4">
-                            <div class="bg-gray-100 p-4 rounded-lg shadow-md">
+                            <div class="bg-gray-100 p-4 rounded-lg text-center">
                                 <h3 class="font-semibold text-gray-800">¿Cómo puedo contactarme con ustedes?</h3>
                                 <p class="text-gray-600">Puedes llamarnos al +34 655 107 735 o escribirnos a academia@morethanwines.com.</p>
                             </div>
-                            <div class="bg-gray-100 p-4 rounded-lg shadow-md">
+                            <div class="bg-gray-100 p-4 rounded-lg text-center">
                                 <h3 class="font-semibold text-gray-800">¿Cómo puedo reservar un lugar en un evento?</h3>
                                 <p class="text-gray-600">Puedes completar el formulario de contacto seleccionando el evento de tu interés.</p>
                             </div>
-                            <div class="bg-gray-100 p-4 rounded-lg shadow-md">
+                            <div class="bg-gray-100 p-4 rounded-lg text-center">
                                 <h3 class="font-semibold text-gray-800">¿Tienen algún evento próximo?</h3>
                                 <p class="text-gray-600">Sí, consulta nuestros eventos disponibles en el formulario de contacto.</p>
                             </div>
