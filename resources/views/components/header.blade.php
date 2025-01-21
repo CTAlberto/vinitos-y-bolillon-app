@@ -13,17 +13,18 @@
 
 
         
-        <!-- Menú de Navegación -->
-        <nav class="hidden md:block">
-            <ul class="flex space-x-6">
-                <li><a class="text-dark hover:text-[#7b1228]" href="/">Inicio</a></li>
-                <li><a class="text-dark hover:text-[#7b1228]" href="/cursos">Cursos</a></li>
-                <li><a class="text-dark hover:text-[#7b1228]" href="/catas">Catas</a></li>
-                <li><a class="text-dark hover:text-[#7b1228]" href="/sobre-nosotros">Sobre Nosotros</a></li>
-                <li><a class="text-dark hover:text-[#7b1228]" href="/empresas">Empresa</a></li>
-                <li><a class="text-dark hover:text-[#7b1228]" href="/contacto">Contacto</a></li>
-            </ul>
-        </nav>
+     <!-- Menú de Navegación -->
+    <nav class="hidden md:block">
+        <ul class="flex space-x-6">
+            <li><a class="text-dark hover:text-[#7b1228]" href="/">Inicio</a></li>
+            <li><a class="text-dark hover:text-[#7b1228]" href="/cursos">Cursos</a></li>
+            <li><a class="text-dark hover:text-[#7b1228]" href="/catas">Catas</a></li>
+            <li><a class="text-dark hover:text-[#7b1228]" href="/sobre-nosotros">Sobre Nosotros</a></li>
+            <li><a class="text-dark hover:text-[#7b1228]" href="/empresas">Empresa</a></li>
+            <li><a class="text-dark hover:text-[#7b1228]" href="/contacto">Contacto</a></li>
+            <li><a class="text-dark hover:text-[#7b1228]" href="/calendar">Calendario</a></li> <!-- Nuevo enlace -->
+        </ul>
+     </nav>
 
         <!-- Menú para pantallas pequeñas (hamburger) -->
         <button id="menu-toggle" class="md:hidden text-2xl text-[#7b1228]">
@@ -31,17 +32,18 @@
         </button>
     </div>
 
-    <!-- Menú desplegable en pantallas pequeñas -->
-    <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white shadow-lg">
-        <ul class="space-y-4 py-4 px-4">
-            <li><a class="text-dark hover:text-[#7b1228]" href="/">Inicio</a></li>
-            <li><a class="text-dark hover:text-[#7b1228]" href="/cursos">Cursos</a></li>
-            <li><a class="text-dark hover:text-[#7b1228]" href="/catas">Catas</a></li>
-            <li><a class="text-dark hover:text-[#7b1228]" href="/sobre-nosotros">Sobre Nosotros</a></li>
-            <li><a class="text-dark hover:text-[#7b1228]" href="/empresas">Empresa</a></li>
-            <li><a class="text-dark hover:text-[#7b1228]" href="/contacto">Contacto</a></li>
-        </ul>
-    </div>
+   <!-- Menú desplegable en pantallas pequeñas -->
+<div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white shadow-lg">
+    <ul class="space-y-4 py-4 px-4">
+        <li><a class="text-dark hover:text-[#7b1228]" href="/">Inicio</a></li>
+        <li><a class="text-dark hover:text-[#7b1228]" href="/cursos">Cursos</a></li>
+        <li><a class="text-dark hover:text-[#7b1228]" href="/catas">Catas</a></li>
+        <li><a class="text-dark hover:text-[#7b1228]" href="/sobre-nosotros">Sobre Nosotros</a></li>
+        <li><a class="text-dark hover:text-[#7b1228]" href="/empresas">Empresa</a></li>
+        <li><a class="text-dark hover:text-[#7b1228]" href="/contacto">Contacto</a></li>
+        <li><a class="text-dark hover:text-[#7b1228]" href="/calendar">Calendario</a></li> <!-- Nuevo enlace -->
+    </ul>
+</div>
 </header>
 
 
