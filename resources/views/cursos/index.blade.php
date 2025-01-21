@@ -6,14 +6,11 @@
     <div class="mb-5 p-4 text-center" style="background-color: #f8f9fa; border-radius: 8px;" data-aos="fade-up">
         <div class="row align-items-center justify-content-center">
             <div class="col-md-8" data-aos="fade-left">
-                <h2 style="font-weight: bold; color: #333; text-align: center; margin-bottom: 7px;">Aprende de los Mejores</h2>
-                <p class="text-muted" style="font-size: 1.1rem; line-height: 1.6; text-align: center;">
-                    Nuestros cursos te ofrecen experiencias educativas únicas, con horarios flexibles y múltiples localizaciones. Ya seas un principiante o un profesional, encontrarás un curso que se ajuste a tus necesidades.
+            <h2 class="text-4xl font-bold text-gray-800 mb-6">Nuestros cursos</h2>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6 text-justify" style="margin-bottom: 0.5em;">
+                Ya seas un principiante curioso o un aficionado experimentado, nuestros programas están diseñados para adaptarse a tus necesidades y niveles de conocimiento. Cada curso te brindará las herramientas necesarias para comprender mejor los diferentes tipos de vino, sus procesos de elaboración, las técnicas de cata y mucho más.                 
                 </p>
-                <p class="text-muted" style="font-size: 1rem; text-align: center;">
-                    <i class="bi bi-clock-fill" style="color: #ff6f61;"></i> Horarios personalizables &nbsp;&bull;&nbsp; 
-                    <i class="bi bi-geo-alt-fill" style="color: #ff6f61;"></i> Disponibles en distintas ciudades
-                </p>
+
             </div>
         </div>
     </div>
@@ -36,15 +33,20 @@
                     <div class="col-md-8" data-aos="fade-left">
                         <h5 class="card-title" style="font-weight: 600; color: #333;">{{ $curso->title_event }}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">{{ $curso->subtitle }}</h6>
-                        <p class="text-muted mb-2" style="font-size: 0.95rem;">{{ Str::limit($curso->description, 150, '...') }}</p>
+                        <p class="text-muted mb-2" style="font-size: 0.95rem;">{{ Str::limit($curso->description, 300, '...') }}</p>
                         <ul class="list-inline text-muted mb-2" style="font-size: 0.9rem;">
                             <li class="list-inline-item"><strong>Inicio:</strong> {{ $curso->ini_date }}</li>
                             <li class="list-inline-item"><strong>Ubicación:</strong> {{ $curso->location }}</li>
                             <li class="list-inline-item"><strong>Capacidad:</strong> {{ $curso->capacity }}</li>
+                            <li class="list-inline-item"><strong>Idioma:</strong> {{ $curso->language }}</li>
                         </ul>
+                        <h5 class="card-title" style="font-weight: 600; color: #333;">Contenido:</h5>
+                        <p>
+                            {{ $curso->content }}
+                        </p>
                         <!-- Botón de inscripción -->
                         <div class="d-flex justify-content-between align-items-center mt-1">
-                            <span class="text-primary" style="font-weight: bold;">${{ $curso->price }}</span>
+                            <span class="text-primary" style="font-weight: bold;">{{ $curso->price }}€</span>
                             <a href="{{ route('inscribirse', $curso->id) }}" class="btn btn-primary px-4 py-2" data-aos="zoom-in">Inscribirse</a>
                         </div>
                     </div>

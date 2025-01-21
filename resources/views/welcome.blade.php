@@ -60,9 +60,15 @@
     <div class="flex items-center justify-between space-x-8">
         
         <div class="w-full md:w-1/2 p-6">
-            <h2 class="text-4xl font-bold text-gray-800 mb-6">Sobre Nosotros</h2>
-            <p class="text-lg text-gray-700 leading-relaxed">
-            Somos una empresa dedicada a la venta y distribución de vinos de alta calidad. Nuestro compromiso es ofrecer a nuestros clientes una experiencia única, brindando los mejores productos y servicios.
+            <h2 class="text-4xl font-bold text-gray-800 mb-6">Bienvenidos a South Wines Academy </h2>
+            <p class="text-lg text-gray-700 leading-relaxed mb-6 text-justify" style="margin-bottom: 0.5em;">
+                En el mundo del vino, cada botella cuenta una historia y cada sorbo es una experiencia única. Creemos firmemente que el conocimiento es la clave para disfrutar plenamente de esta fascinante cultura.
+            </p>
+            <p class="text-lg text-gray-700 leading-relaxed mb-6 text-justify" style="margin-bottom: 0.5em;">
+                Te invitamos a explorar nuestro sitio, donde encontrarás información detallada sobre nuestros cursos, así como recursos adicionales que enriquecerán tu aprendizaje y pasión por el vino. Únete a nuestra comunidad y déjanos ser parte de tu viaje hacia el mundo del vino.
+            </p>
+            <p class="text-lg text-gray-700 leading-relaxed mb-4 text-justify">
+                ¡Salud y bienvenidos a bordo!
             </p>
         </div>
         
@@ -81,9 +87,9 @@
         </div>
        
         <div class="w-full md:w-1/2 p-6">
-            <h2 class="text-4xl font-bold text-gray-800 mb-6">Nuestro Producto</h2>
-            <p class="text-lg text-gray-700 leading-relaxed">
-                Nuestros vinos son seleccionados cuidadosamente por expertos en la materia, garantizando la mejor calidad y sabor en cada botella. Descubre nuestra colección y encuentra el vino perfecto para cada ocasión.
+            <h2 class="text-4xl font-bold text-gray-800 mb-6">Nuestra filosofía </h2>
+            <p class="text-lg text-gray-700 leading-relaxed mb-6 text-justify" style="margin-bottom: 0.5em;">
+            En South Wines Academy, estamos profundamente comprometidos con la divulgación del fascinante mundo del vino y la educación en este ámbito. Creemos firmemente que, a través de la enseñanza, podemos cultivar una apreciación más profunda y enriquecedora por los vinos, brindando a nuestros estudiantes las herramientas necesarias para explorar y disfrutar de esta experiencia de manera excepcional. 
             </p>
         </div>
     </div>
