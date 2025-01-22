@@ -11,6 +11,12 @@ use App\Http\Controllers\AdminContactoController;
 use App\Http\Controllers\SobreNosotrosController;
 use App\Http\Controllers\EmpresaController;
 
+use App\Http\Controllers\EventController;
+
+// Ruta para obtener los eventos en formato JSON
+Route::get('/api/events', [EventController::class, 'getEvents'])->name('api.events');
+
+
 // **Frontend Routes**
 Route::get('/', function () {
     return view('welcome'); // Portada o página principal
