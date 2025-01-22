@@ -6,8 +6,8 @@
     <div class="mb-5 p-4 text-center" style="background-color: #f8f9fa; border-radius: 8px;" data-aos="fade-up">
         <div class="row align-items-center justify-content-center">
             <div class="col-md-8" data-aos="fade-left">
-            <h2 class="text-4xl font-bold text-gray-800 mb-6">Nuestros cursos</h2>
-                <p class="text-lg text-gray-700 leading-relaxed mb-6 text-justify" style="margin-bottom: 0.5em;">
+            <h2 class="text-4xl font-bold text-gray-800 mb-6"data-aos="fade-right" data-aos-delay="200"data-aos-duration="1000">Nuestros cursos</h2>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6 text-justify" style="margin-bottom: 0.5em;"data-aos="fade-left" data-aos-delay="200"data-aos-duration="1000">
                 Ya seas un principiante curioso o un aficionado experimentado, nuestros programas están diseñados para adaptarse a tus necesidades y niveles de conocimiento. Cada curso te brindará las herramientas necesarias para comprender mejor los diferentes tipos de vino, sus procesos de elaboración, las técnicas de cata y mucho más.                 
                 </p>
 
@@ -20,7 +20,7 @@
     <div class="row">
         @foreach ($cursos as $curso)
         <div class="col-12 mb-4">
-            <div class="p-3" style="background-color: #f8f9fa; border-radius: 8px;" data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
+            <div class="p-3" style="background-color: #f8f9fa; border-radius: 8px;"data-aos="zoom-in" data-aos-duration="1000" data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
                 <div class="row g-3 align-items-center">
                     <!-- Imagen del curso -->
                     <div class="col-md-4" data-aos="fade-right">
@@ -30,7 +30,7 @@
                              style="object-fit: cover; height: 100%; width: 100%; border-radius: 8px;">-->
                     </div>
                     <!-- Contenido del curso -->
-                    <div class="col-md-8" data-aos="fade-left">
+                    <div class="col-md-8" >
                         <h5 class="card-title" style="font-weight: 600; color: #333;">{{ $curso->title_event }}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">{{ $curso->subtitle }}</h6>
                         <p class="text-muted mb-2" style="font-size: 0.95rem;">{{ Str::limit($curso->description, 300, '...') }}</p>
@@ -45,9 +45,13 @@
                             {{ $curso->content }}
                         </p>
                         <!-- Botón de inscripción -->
-                        <div class="d-flex justify-content-between align-items-center mt-1">
-                            <span class="text-primary" style="font-weight: bold;">{{ $curso->price }}€</span>
-                            <a href="{{ route('inscribirse', $curso->id) }}" class="btn btn-primary px-4 py-2" data-aos="zoom-in">Inscribirse</a>
+                        <div class="d-flex justify-content-between align-items-end mt-4">
+                            <span class="text-primary mb-2" style="font-weight: bold;">{{ $curso->price }}€</span>
+                            <div class="d-flex gap-2 mt-4">
+                                <a href="{{ route('inscribirse', $curso->id) }}" class="btn btn-primary px-4 py-2" data-aos="zoom-in">Inscribirse</a>
+                                <a href="https://www.google.com/maps?q=37.39118345901626,-6.000890322464233" class="btn btn-primary px-4 py-2" data-aos="zoom-in" target="_blank">
+                                    <i class="fas fa-map-marker-alt"></i> Ubicación
+                                </a>                            </div>
                         </div>
                     </div>
                 </div>
