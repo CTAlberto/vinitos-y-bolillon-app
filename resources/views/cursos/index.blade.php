@@ -46,14 +46,15 @@
                         <p>{{ $curso->content }}</p>
                         <!-- Botón de inscripción -->
                         <div class="d-flex justify-content-between align-items-end mt-4">
-                            <span class="text-primary mb-2" style="font-weight: bold;">{{ $curso->price }}€</span>
-                            <div class="d-flex gap-2 mt-4">
-                                <a href="{{ route('inscribirse', $curso->id) }}" class="btn btn-primary px-4 py-2" data-aos="zoom-in">Inscribirse</a>
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                <i class="fas fa-map-marker-alt"></i>Ubicación
-                                </button>
-                            </div>
-                        </div>
+    <span class="text-primary mb-2" style="font-weight: bold;">{{ $curso->price }}€</span>
+    <div class="d-flex gap-2 mt-4">
+        <a href="{{ route('inscribirse', $curso->id) }}" class="btn btn-primary px-4 py-2" data-aos="zoom-in">Inscribirse</a>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-aos="zoom-in" data-aos-duration="1000">
+            <i class="fas fa-map-marker-alt"></i> Ubicación
+        </button>
+    </div>
+</div>
+
                     </div> <!-- Cierre del div col-md-8 -->
                 </div> <!-- Cierre del div row g-3 align-items-center -->
             </div> <!-- Cierre del div p-3 -->
