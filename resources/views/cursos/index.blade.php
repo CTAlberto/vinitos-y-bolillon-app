@@ -1,6 +1,12 @@
 @extends('layouts.app')
 
 @section('main-content')
+    <style>
+        #mapTest {
+            width: 100%;
+            height: 600px;
+        }
+    </style>
 <div class="container pt-32 mt-5" style="margin-top: 50px;">
     <!-- Tarjeta de descripción general -->
     <div class="mb-5 p-4 text-center" style="background-color: #f8f9fa; border-radius: 8px;" data-aos="fade-up">
@@ -43,8 +49,8 @@
                             <span class="text-primary mb-2" style="font-weight: bold;">{{ $curso->price }}€</span>
                             <div class="d-flex gap-2 mt-4">
                                 <a href="{{ route('inscribirse', $curso->id) }}" class="btn btn-primary px-4 py-2" data-aos="zoom-in">Inscribirse</a>
-                                <button type="button" class="btn btn-primary px-4 py-2" data-bs-toggle="modal" data-bs-target="#mapModal{{ $curso->id }}">
-                                    <i class="fas fa-map-marker-alt"></i> Ubicación
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <i class="fas fa-map-marker-alt"></i>Ubicación
                                 </button>
                             </div>
                         </div>
@@ -54,46 +60,47 @@
         </div> <!-- Cierre del div col-12 mb-4 -->
 
         <!-- Modal -->
-        <div class="modal fade" id="mapModal{{ $curso->id }}" tabindex="-1" aria-labelledby="mapModalLabel{{ $curso->id }}" aria-hidden="true"
-             data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="mapModalLabel{{ $curso->id }}">Ubicación del Curso</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Mapa de prueba</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
-                        <div id="map{{ $curso->id }}" style="height: 600px;"></div>
-                    </div>
-                </div>
-            </div>
+                <div class="modal-body">
+            <div id="mapTest"></div>
         </div>
+    </div>
+</div>
+</div>
         @endforeach
     </div> <!-- Cierre del div row -->
 </div> <!-- Cierre del div container -->
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        @foreach ($cursos as $curso)
-        // Inicializar el mapa, pero sin agregar contenido todavía
-        var map{{ $curso->id }} = L.map('map{{ $curso->id }}', { 
-            center: [37.39118345901626, -6.000890322464233], 
-            zoom: 13 
-        });
-        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-        }).addTo(map{{ $curso->id }});
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
-        // Escuchar el evento del modal
-        $('#mapModal{{ $curso->id }}').on('shown.bs.modal', function () {
-            setTimeout(function () {
-                map{{ $curso->id }}.invalidateSize(); // Forzar la recalibración del mapa
-                L.marker([37.39118345901626, -6.000890322464233]).addTo(map{{ $curso->id }});
-            }, 2000); // Retrasar ligeramente para permitir que el modal termine de abrirse
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let mapTest;
+
+            // Escuchar cuando el modal se abre
+            document.getElementById('exampleModal').addEventListener('shown.bs.modal', function () {
+                if (!mapTest) {
+                    // Inicializar el mapa al abrir el modal
+                    mapTest = L.map('mapTest').setView([37.39118345901626, -6.000890322464233], 13);
+                    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        maxZoom: 19,
+                        attribution: '&copy; OpenStreetMap'
+                    }).addTo(mapTest);
+                    L.marker([37.39118345901626, -6.000890322464233]).addTo(mapTest);
+                } else {
+                    // Recalibrar si el mapa ya existe
+                    mapTest.invalidateSize();
+                }
+            });
         });
-        @endforeach
-    });
-</script>
+    </script>
 
 @endsection
