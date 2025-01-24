@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('main-content')
-<div class="container mx-auto mt-32 px-4">
+<div class="container pt-3 mt-1">
     <!-- Título Principal -->
-    <h1 class="text-center mb-10 text-4xl font-extrabold text-gray-800" data-aos="fade-up" data-aos-duration="1000">
+    <h1 class="text-center mb-10 mt-32 text-4xl font-extrabold text-gray-800" data-aos="fade-up" data-aos-duration="1000">
         Cursos para Empresas
     </h1>
 

@@ -2,7 +2,7 @@
 
 @section('main-content')
 <!-- Carrusel -->
-<div class="container mx-auto mt-5 mb-5">
+<div class="container pt-32 mt-5" style="margin-top: 50px;">
     <div id="carouselExampleAutoplaying" class="relative carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-inner relative w-full overflow-hidden">
 
@@ -129,17 +129,5 @@
     </div>
 </div>
 </div>
-
-<div id="map" class="w-full h-72 md:h-96"></div>
-<script>
-    var map = L.map('map').setView([37.39118345901626, -6.000890322464233], 13);
-
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
-
-    var marker = L.marker([37.39118345901626, -6.000890322464233]).addTo(map);
-</script> <!-- End of map -->
 
 @endsection
