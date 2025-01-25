@@ -66,12 +66,6 @@ class EventResource extends Resource
                 Forms\Components\TextInput::make('location')
                     ->required()
                     ->label('Lugar'),
-                Forms\Components\TextInput::make('latitude')
-                    ->required()
-                    ->label('Latitud'),
-                Forms\Components\TextInput::make('longitude')
-                    ->required()
-                    ->label('Longitud'),
                 Forms\Components\ViewField::make('map')
                     ->view('components.map')
                     ->label('Seleccionar ubicación en el mapa'),

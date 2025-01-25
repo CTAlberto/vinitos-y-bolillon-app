@@ -6,8 +6,8 @@
     <button id="search-button" class="btn btn-primary mt-2">Buscar</button>
 </div>
 
-<input type="hidden" name="latitude" id="latitude" value="">
-<input type="hidden" name="longitude" id="longitude" value="">
+<input type="text" name="latitude" id="latitude" class="form-control mt-2" placeholder="Latitud">
+<input type="text" name="longitude" id="longitude" class="form-control mt-2" placeholder="Longitud">
 
 @push('scripts')
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -31,33 +31,43 @@
 
             // Buscar dirección
             document.getElementById('search-button').addEventListener('click', function () {
+                const query = document.getElementById('search-input').value;
+                provider.search({ query: query }).then(function (result) {
+                    if (result && result.length > 0) {
+                        const { x, y } = result[0];
+                        marker.setLatLng([y, x]);
+                        map.setView([y, x], 17);
 
-            const query = document.getElementById('search-input').value;
-            provider.search({ query: query }).then(function (result) {
-                
-                if (result && result.length > 0) {
-                    const { x, y } = result[0];
-                    marker.setLatLng([y, x]);
-                    map.setView([y, x], 17);
-                    // Mostrar latitud y longitud en la consola
-                    console.log("Latitud obtenida de búsqueda: " + y.toFixed(8));
-                    console.log("Longitud obtenida de búsqueda: " + x.toFixed(8));
+                        // Actualizar latitud y longitud en los inputs visibles y en los campos del formulario
+                        document.getElementById('latitude').value = y.toFixed(8);
+                        document.getElementById('longitude').value = x.toFixed(8);
 
-                    document.getElementById('latitude').value = y.toFixed(8);
-                    document.getElementById('longitude').value = x.toFixed(8);
-        }
-    });
-});
+                        // También podemos actualizar los campos de Filament en el formulario si es necesario
+                        document.querySelector('input[name="latitude"]').value = y.toFixed(8);
+                        document.querySelector('input[name="longitude"]').value = x.toFixed(8);
 
+                        // Verificar los valores actualizados
+                        console.log('Latitud:', y.toFixed(8));
+                        console.log('Longitud:', x.toFixed(8));
+                    }
+                });
+            });
 
-                marker.on('dragend', function (e) {
+            // Actualizar latitud y longitud cuando el marcador es arrastrado
+            marker.on('dragend', function (e) {
                 const latLng = e.target.getLatLng();
-                // Mostrar latitud y longitud al mover el marcador
-                console.log("Latitud después de arrastrar el marcador: " + latLng.lat.toFixed(8));
-                console.log("Longitud después de arrastrar el marcador: " + latLng.lng.toFixed(8));
 
+                // Actualizar latitud y longitud en los inputs visibles y en los campos del formulario
                 document.getElementById('latitude').value = latLng.lat.toFixed(8);
                 document.getElementById('longitude').value = latLng.lng.toFixed(8);
+
+                // Actualizar los campos de Filament
+                document.querySelector('input[name="latitude"]').value = latLng.lat.toFixed(8);
+                document.querySelector('input[name="longitude"]').value = latLng.lng.toFixed(8);
+
+                // Verificar los valores actualizados
+                console.log('Latitud:', latLng.lat.toFixed(8));
+                console.log('Longitud:', latLng.lng.toFixed(8));
             });
         });
     </script>
