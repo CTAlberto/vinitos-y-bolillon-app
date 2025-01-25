@@ -3,7 +3,6 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\EventResource\Pages;
-use App\Filament\Resources\EventResource\RelationManagers;
 use App\Models\Event;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -11,19 +10,18 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\DateTimePicker;
-use Filament\Forms\Components\TimePicker;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\ViewField;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\CheckboxList;
 use Illuminate\Support\HtmlString;
 use Filament\Tables\Columns\TextColumn;
-
-
 
 class EventResource extends Resource
 {
     protected static ?string $model = Event::class;
     protected static ?string $modelLabel = 'Evento';
-
     protected static ?string $navigationIcon = 'heroicon-s-calendar';
 
     public static function form(Form $form): Form
@@ -68,9 +66,11 @@ class EventResource extends Resource
                     ->required()
                     ->label('Lugar'),
                 Forms\Components\TextInput::make('latitude')
+                    ->hidden()
                     ->required()
                     ->label('Latitud'),
                 Forms\Components\TextInput::make('longitude')
+                    ->hidden()
                     ->required()
                     ->label('Longitud'),
                 Forms\Components\ViewField::make('map')
@@ -97,7 +97,7 @@ class EventResource extends Resource
                     ->label('Idioma'),
             ]);
     }
-    
+
     public static function table(Table $table): Table
     {
         return $table
@@ -113,18 +113,18 @@ class EventResource extends Resource
                     ->label('Título del evento'),
                 TextColumn::make('subtitle')
                     ->searchable()
-                    ->label('Subtitulo'),
+                    ->label('Subtítulo'),
                 TextColumn::make('description')
                     ->searchable()
                     ->label('Descripción'),
                 TextColumn::make('ini_date')
                     ->searchable()
                     ->label('Fecha de inicio')
-                    ->formatStateUsing(fn ($state) => \Carbon\Carbon::parse($state)->translatedFormat('l, d F Y - H:i')),
+                    ->formatStateUsing(fn($state) => \Carbon\Carbon::parse($state)->translatedFormat('l, d F Y - H:i')),
                 TextColumn::make('end_date')
                     ->searchable()
                     ->label('Fecha de fin')
-                    ->formatStateUsing(fn ($state) => \Carbon\Carbon::parse($state)->translatedFormat('l, d F Y - H:i')),
+                    ->formatStateUsing(fn($state) => \Carbon\Carbon::parse($state)->translatedFormat('l, d F Y - H:i')),
                 TextColumn::make('price')
                     ->searchable()
                     ->label('Precio'),
@@ -137,11 +137,10 @@ class EventResource extends Resource
                 TextColumn::make('language')
                     ->searchable()
                     ->label('Idioma'),
-                    TextColumn::make('latitude')
-                    ->label('Latitud'),     
+                TextColumn::make('latitude')
+                    ->label('Latitud'),
                 TextColumn::make('longitude')
-                    ->label('Longitud'),    
-
+                    ->label('Longitud'),
             ])
             ->filters([
                 //
@@ -172,3 +171,4 @@ class EventResource extends Resource
         ];
     }
 }
+
