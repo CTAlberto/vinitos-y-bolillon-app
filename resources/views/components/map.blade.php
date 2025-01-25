@@ -6,8 +6,8 @@
     <button id="search-button" class="btn btn-primary mt-2">Buscar</button>
 </div>
 
-<input type="text" name="latitude" id="latitude" class="form-control mt-2" placeholder="Latitud">
-<input type="text" name="longitude" id="longitude" class="form-control mt-2" placeholder="Longitud">
+<input style="--col-span-default: span 1 / span 1;" type="text" name="latitude" id="latitude"class="col-[--col-span-default]" placeholder="Latitud" wire:key="zStXxlqafTw3Jl8WwRft.data.price.Filament\Forms\Components\TextInput">
+<input style="--col-span-default: span 1 / span 1;" type="text" name="longitude" id="longitude" class="col-[--col-span-default]" placeholder="Longitud" wire:key="zStXxlqafTw3Jl8WwRft.data.price.Filament\Forms\Components\TextInput">
 
 @push('scripts')
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />

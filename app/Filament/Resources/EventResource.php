@@ -74,6 +74,12 @@ class EventResource extends Resource
                     ->numeric()
                     ->suffix('€')
                     ->label('Precio'),
+                    Forms\Components\TextInput::make('latitude')
+    ->required()
+    ->label('Latitud'),
+Forms\Components\TextInput::make('longitude')
+    ->required()
+    ->label('Longitud'),
                 Forms\Components\TextInput::make('capacity')
                     ->required()
                     ->integer()
