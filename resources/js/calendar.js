@@ -28,14 +28,14 @@ document.addEventListener('DOMContentLoaded', function () {
                                     ...event,
                                     start: start,
                                     end: start,
-                                    color: 'green',
+                                    color: '#8B0000', // Rojo oscuro (vino tinto)
                                     title: `${event.title} - Inicio`,
                                 },
                                 {
                                     ...event,
                                     start: end,
                                     end: end,
-                                    color: 'red',
+                                    color: '#FFBF00', // Ámbar (vino de Jerez)
                                     title: `${event.title} - Fin`,
                                 },
                             ];
@@ -50,36 +50,88 @@ document.addEventListener('DOMContentLoaded', function () {
                     text: `Fecha: ${info.event.start.toLocaleString()}`,
                     icon: 'info',
                     confirmButtonText: 'Cerrar',
+                    confirmButtonColor: '#D4A017', // Dorado cálido
+                    customClass: {
+                        popup: 'rounded-lg shadow-xl', // Estilos de Tailwind para SweetAlert2
+                        confirmButton: 'bg-[#D4A017] hover:bg-[#8B0000] text-white font-bold py-2 px-4 rounded',
+                    },
                 });
             },
             eventContent: function (eventInfo) {
                 return {
                     html: `
-                        <div style="color: white; background-color: ${eventInfo.event.backgroundColor}; padding: 4px; border-radius: 3px;">
+                        <div class="text-white p-1 rounded-md shadow-sm text-xs transition-transform transform hover:scale-105" style="background-color: ${eventInfo.event.backgroundColor}">
                             ${eventInfo.event.title}
                         </div>
                     `,
                 };
             },
-            visibleRange: function(currentDate) {
-                // Mostrar solo los días del mes actual en dayGridMonth
+            visibleRange: function (currentDate) {
                 const startDate = new Date(currentDate);
-                startDate.setDate(1); // Primer día del mes
+                startDate.setDate(1);
                 const endDate = new Date(currentDate);
                 endDate.setMonth(endDate.getMonth() + 1);
-                endDate.setDate(0); // Último día del mes
+                endDate.setDate(0);
                 return {
                     start: startDate.toISOString().split('T')[0],
                     end: endDate.toISOString().split('T')[0],
                 };
             },
-            height: 'auto',
-            aspectRatio: 1.35, // Ajuste para mejorar el espaciado en las vistas semanal y diaria
-            slotMinTime: '08:00:00', // Comienza la vista de día y semana a las 8:00 AM
-            slotMaxTime: '20:00:00', // Termina a las 8:00 PM
-            expandRows: true, // Hace que los días siempre tengan la misma altura
-            dayMaxEventRows: true, // Limita las filas de eventos visibles en dayGridMonth
+            height: 'auto', // Altura automática para evitar el scroll
+            aspectRatio: 1.1, // Relación de aspecto más compacta
+            slotMinTime: '08:00:00',
+            slotMaxTime: '20:00:00',
+            expandRows: true,
+            dayMaxEventRows: 2, // Mostrar hasta 2 filas de eventos por día
             eventDisplay: 'block',
+            // Personalización de estilos con Tailwind
+            themeSystem: 'standard',
+            buttonText: {
+                today: 'Hoy',
+                month: 'Mes',
+                week: 'Semana',
+                day: 'Día',
+            },
+            eventBackgroundColor: '#8B0000', // Color de fondo por defecto para eventos
+            eventBorderColor: '#D4A017', // Color del borde de los eventos
+            eventTextColor: '#FFFFFF', // Color del texto de los eventos
+            // Estilos personalizados para el calendario con Tailwind
+            dayCellContent: function (info) {
+                return {
+                    html: `
+                        <div class="text-center p-1 rounded-full hover:bg-[#D4A017] hover:text-white transition-colors text-xs cursor-pointer">
+                            ${info.dayNumberText}
+                        </div>
+                    `,
+                };
+            },
+            dayHeaderContent: function (info) {
+                return {
+                    html: `
+                        <div class="text-center font-bold text-[#8B0000] text-xs uppercase">
+                            ${info.text}
+                        </div>
+                    `,
+                };
+            },
+            buttonIcons: {
+                prev: 'chevron-left',
+                next: 'chevron-right',
+                today: 'calendar',
+            },
+            buttonText: {
+                today: 'Hoy',
+                month: 'Mes',
+                week: 'Semana',
+                day: 'Día',
+            },
+            // Animaciones y transiciones con Tailwind
+            eventMouseEnter: function (info) {
+                info.el.classList.add('scale-105', 'shadow-lg'); // Escala y sombra al hacer hover
+            },
+            eventMouseLeave: function (info) {
+                info.el.classList.remove('scale-105', 'shadow-lg'); // Restablece al salir
+            },
         });
 
         calendar.render();

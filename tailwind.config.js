@@ -18,4 +18,12 @@ export default {
     },
 
     plugins: [forms],
+
+    // Añade esta sección para extender las variantes
+    variants: {
+        extend: {
+            opacity: ['group-hover'], // Habilita group-hover para opacity
+            visibility: ['group-hover'], // Habilita group-hover para visibility
+        },
+    },
 };
