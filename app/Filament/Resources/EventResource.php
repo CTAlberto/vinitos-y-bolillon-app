@@ -24,6 +24,7 @@ class EventResource extends Resource
     protected static ?string $modelLabel = 'Evento';
     protected static ?string $navigationIcon = 'heroicon-s-calendar';
 
+
     public static function form(Form $form): Form
     {
         return $form
@@ -66,11 +67,9 @@ class EventResource extends Resource
                     ->required()
                     ->label('Lugar'),
                 Forms\Components\TextInput::make('latitude')
-                    ->hidden()
                     ->required()
                     ->label('Latitud'),
                 Forms\Components\TextInput::make('longitude')
-                    ->hidden()
                     ->required()
                     ->label('Longitud'),
                 Forms\Components\ViewField::make('map')

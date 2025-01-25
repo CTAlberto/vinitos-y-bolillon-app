@@ -31,20 +31,31 @@
 
             // Buscar dirección
             document.getElementById('search-button').addEventListener('click', function () {
-                const query = document.getElementById('search-input').value;
-                provider.search({ query: query }).then(function (result) {
-                    if (result && result.length > 0) {
-                        const { x, y } = result[0];
-                        marker.setLatLng([y, x]);
-                        map.setView([y, x], 17);
-                        document.getElementById('latitude').value = y.toFixed(8);
-                        document.getElementById('longitude').value = x.toFixed(8);
-                    }
-                });
-            });
 
-            marker.on('dragend', function (e) {
+            const query = document.getElementById('search-input').value;
+            provider.search({ query: query }).then(function (result) {
+                
+                if (result && result.length > 0) {
+                    const { x, y } = result[0];
+                    marker.setLatLng([y, x]);
+                    map.setView([y, x], 17);
+                    // Mostrar latitud y longitud en la consola
+                    console.log("Latitud obtenida de búsqueda: " + y.toFixed(8));
+                    console.log("Longitud obtenida de búsqueda: " + x.toFixed(8));
+
+                    document.getElementById('latitude').value = y.toFixed(8);
+                    document.getElementById('longitude').value = x.toFixed(8);
+        }
+    });
+});
+
+
+                marker.on('dragend', function (e) {
                 const latLng = e.target.getLatLng();
+                // Mostrar latitud y longitud al mover el marcador
+                console.log("Latitud después de arrastrar el marcador: " + latLng.lat.toFixed(8));
+                console.log("Longitud después de arrastrar el marcador: " + latLng.lng.toFixed(8));
+
                 document.getElementById('latitude').value = latLng.lat.toFixed(8);
                 document.getElementById('longitude').value = latLng.lng.toFixed(8);
             });
