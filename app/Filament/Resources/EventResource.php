@@ -41,7 +41,7 @@ class EventResource extends Resource
                     ->required()
                     ->maxLength(200)
                     ->label('Título del evento'),
-                Forms\Components\Textarea::make(name:'subtitle')
+                Forms\Components\Textarea::make('subtitle')
                     ->required()
                     ->maxLength(250)
                     ->label('Subtitulo'),
@@ -67,6 +67,15 @@ class EventResource extends Resource
                 Forms\Components\TextInput::make('location')
                     ->required()
                     ->label('Lugar'),
+                Forms\Components\TextInput::make('latitude')
+                    ->required()
+                    ->label('Latitud'),
+                Forms\Components\TextInput::make('longitude')
+                    ->required()
+                    ->label('Longitud'),
+                Forms\Components\ViewField::make('map')
+                    ->view('components.map')
+                    ->label('Seleccionar ubicación en el mapa'),
                 Forms\Components\TextInput::make('price')
                     ->required()
                     ->numeric()
@@ -79,16 +88,16 @@ class EventResource extends Resource
                 Select::make('language')
                     ->required()
                     ->options([
-                        'Español',
-                        'Inglés',
-                        'Francés',
-                        'Portugués',
-                        'Italiano',
+                        'Español' => 'Español',
+                        'Inglés' => 'Inglés',
+                        'Francés' => 'Francés',
+                        'Portugués' => 'Portugués',
+                        'Italiano' => 'Italiano',
                     ])
                     ->label('Idioma'),
             ]);
     }
-
+    
     public static function table(Table $table): Table
     {
         return $table
@@ -128,6 +137,10 @@ class EventResource extends Resource
                 TextColumn::make('language')
                     ->searchable()
                     ->label('Idioma'),
+                    TextColumn::make('latitude')
+                    ->label('Latitud'),     
+                TextColumn::make('longitude')
+                    ->label('Longitud'),    
 
             ])
             ->filters([
