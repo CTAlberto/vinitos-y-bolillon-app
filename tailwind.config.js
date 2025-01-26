@@ -18,4 +18,11 @@ export default {
     },
 
     plugins: [forms],
+
+    variants: {
+        extend: {
+            opacity: ['group-hover'], 
+            visibility: ['group-hover'], 
+        },
+    },
 };
