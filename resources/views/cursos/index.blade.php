@@ -46,62 +46,69 @@
                         <p>{{ $curso->content }}</p>
                         <!-- Botón de inscripción -->
                         <div class="d-flex justify-content-between align-items-end mt-4">
-    <span class="text-primary mb-2" style="font-weight: bold;">{{ $curso->price }}€</span>
-    <div class="d-flex gap-2 mt-4">
-        <a href="{{ route('inscribirse', $curso->id) }}" class="btn btn-primary px-4 py-2" data-aos="zoom-in">Inscribirse</a>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-aos="zoom-in" data-aos-duration="1000">
-            <i class="fas fa-map-marker-alt"></i> Ubicación
-        </button>
-    </div>
-</div>
-
+                            <span class="text-primary mb-2" style="font-weight: bold;">{{ $curso->price }}€</span>
+                            <div class="d-flex gap-2 mt-4">
+                                <a href="{{ route('inscribirse', $curso->id) }}" class="btn btn-primary px-4 py-2" data-aos="zoom-in">Inscribirse</a>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-{{ $curso->id }}" data-lat="{{ $curso->latitude }}" data-lng="{{ $curso->longitude }}" data-aos="zoom-in" data-aos-duration="1000">
+                                    <i class="fas fa-map-marker-alt"></i> Ubicación
+                                </button>
+                            </div>
+                        </div>
                     </div> <!-- Cierre del div col-md-8 -->
                 </div> <!-- Cierre del div row g-3 align-items-center -->
             </div> <!-- Cierre del div p-3 -->
         </div> <!-- Cierre del div col-12 mb-4 -->
 
         <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="modal-{{ $curso->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Mapa de prueba</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Ubicación del curso</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                <div class="modal-body">
-            <div id="mapTest"></div>
+                    <div class="modal-body">
+                        <div id="map-{{ $curso->id }}" style="height: 400px;"></div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
-</div>
         @endforeach
     </div> <!-- Cierre del div row -->
 </div> <!-- Cierre del div container -->
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            let mapTest;
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        let maps = {};
 
-            // Escuchar cuando el modal se abre
-            document.getElementById('exampleModal').addEventListener('shown.bs.modal', function () {
-                if (!mapTest) {
-                    // Inicializar el mapa al abrir el modal
-                    mapTest = L.map('mapTest').setView([37.39118345901626, -6.000890322464233], 13);
-                    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                        maxZoom: 19,
-                        attribution: '&copy; OpenStreetMap'
-                    }).addTo(mapTest);
-                    L.marker([37.39118345901626, -6.000890322464233]).addTo(mapTest);
-                } else {
-                    // Recalibrar si el mapa ya existe
-                    mapTest.invalidateSize();
-                }
+        // Escuchar cuando cualquier modal se abre
+        document.querySelectorAll('[data-bs-toggle="modal"]').forEach(button => {
+            button.addEventListener('click', function () {
+                const modalId = this.getAttribute('data-bs-target');
+                const lat = this.getAttribute('data-lat');
+                const lng = this.getAttribute('data-lng');
+
+                // Inicializar el mapa al abrir el modal
+                document.querySelector(modalId).addEventListener('shown.bs.modal', function () {
+                    if (!maps[modalId]) {
+                        maps[modalId] = L.map(modalId.replace('#modal-', 'map-')).setView([lat, lng], 13);
+                        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                            maxZoom: 19,
+                            attribution: '&copy; OpenStreetMap'
+                        }).addTo(maps[modalId]);
+                        L.marker([lat, lng]).addTo(maps[modalId]);
+                    } else {
+                        // Recalibrar si el mapa ya existe
+                        maps[modalId].invalidateSize();
+                    }
+                });
             });
         });
-    </script>
+    });
+</script>
 
 @endsection
