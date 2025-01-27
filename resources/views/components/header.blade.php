@@ -1,12 +1,11 @@
 @vite(['resources/css/app.css', 'resources/js/app.js'])
+
 <header class="bg-white fixed-top w-full border-b">
-    <div class="container mx-auto flex justify-between items-center py-3 px-4 md:px-8">
+
+    <div class="container mx-auto flex justify-between items-center py-5 px-2 md:px-6">
         <!-- Logotipo y Nombre de la Academia -->
         <div class="flex items-center">
-            <a href="/" class="flex-shrink-0">
-                <img src="{{ Vite::asset('resources/img/logotipo.png') }}" alt="Logotipo" style="max-height: 48px; min-height: 32px; height: auto;">
-            </a>
-            <h1 class="text-xl font-serif font-bold text-black whitespace-nowrap ml-3">
+            <h1 class="text-xl font-serif font-bold text-black whitespace-nowrap ml-5">
                 South Wines Academy
             </h1>
         </div>
