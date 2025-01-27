@@ -57,8 +57,8 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
             <!-- Miembro 1 -->
             <div class="text-center" data-aos="flip-left" data-aos-duration="1000">
-                <img src="{{ Vite::asset('resources/img/maria.jpg') }}"  class="w-48 h-48 object-cover rounded-full mx-auto mb-4 shadow-lg">
-                <h3 class="text-xl font-semibold text-gray-800">María López</h3>
+                <img src="{{ Vite::asset('resources/img/ana.jpg') }}"  class="w-48 h-48 object-cover rounded-full mx-auto mb-4 shadow-lg">
+                <h3 class="text-xl font-semibold text-gray-800">Ana Hergueta Garde</h3>
                 <p class="text-gray-600">Sumiller Experta</p>
             </div>
             <!-- Miembro 2 -->

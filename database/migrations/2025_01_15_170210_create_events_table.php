@@ -23,6 +23,8 @@ return new class extends Migration
             $table->integer('capacity');
             $table->string('language')->default('español');
             $table->timestamps();
+            $table->decimal('latitude', 10, 8)->nullable();     
+            $table->decimal('longitude', 11, 8)->nullable();
         });
     }
 

@@ -10,22 +10,21 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\DateTimePicker;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\ViewField;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\CheckboxList;
 use Illuminate\Support\HtmlString;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Forms\Components\CheckboxList;
-use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\TextArea;
 use Filament\Forms\Components\RichEditor;
-
-
 
 
 class EventResource extends Resource
 {
     protected static ?string $model = Event::class;
     protected static ?string $modelLabel = 'Evento';
-
     protected static ?string $navigationIcon = 'heroicon-s-calendar';
+
 
     public static function form(Form $form): Form
     {
@@ -68,11 +67,21 @@ class EventResource extends Resource
                 TextInput::make('location')
                     ->required()
                     ->label('Lugar'),
+                ViewField::make('map')
+                    ->view('components.map')
+                    ->label('Seleccionar ubicación en el mapa'),
                 TextInput::make('price')
                     ->required()
                     ->numeric()
                     ->suffix('€')
                     ->label('Precio'),
+                TextInput::make('capacity'),
+                TextInput::make('latitude')
+                    ->required()
+                    ->label('Latitud'),
+                TextInput::make('longitude')
+                    ->required()
+                    ->label('Longitud'),
                 TextInput::make('capacity')
                     ->required()
                     ->integer()
@@ -80,11 +89,11 @@ class EventResource extends Resource
                 Select::make('language')
                     ->required()
                     ->options([
-                        'Español',
-                        'Inglés',
-                        'Francés',
-                        'Portugués',
-                        'Italiano',
+                        'Español' => 'Español',
+                        'Inglés' => 'Inglés',
+                        'Francés' => 'Francés',
+                        'Portugués' => 'Portugués',
+                        'Italiano' => 'Italiano',
                     ])
                     ->label('Idioma'),
             ]);
@@ -103,19 +112,24 @@ class EventResource extends Resource
                 TextColumn::make('title_event')
                     ->searchable()
                     ->label('Título del evento'),
+                TextColumn::make('subtitle')
+                    ->searchable()
+                    ->label('Subtítulo'),
+                TextColumn::make('description')
+                    ->searchable()
+                    ->label('Descripción'),
                 TextColumn::make('ini_date')
                     ->searchable()
                     ->label('Fecha de inicio')
-                    ->formatStateUsing(fn ($state) => \Carbon\Carbon::parse($state)->translatedFormat('d F Y - H:i')),
+                    ->formatStateUsing(fn($state) => \Carbon\Carbon::parse($state)->translatedFormat('l, d F Y - H:i')),
                 TextColumn::make('end_date')
                     ->searchable()
                     ->sortable()
                     ->label('Fecha de fin')
-                    ->formatStateUsing(fn ($state) => \Carbon\Carbon::parse($state)->translatedFormat('d F Y - H:i')),
+                    ->formatStateUsing(fn($state) => \Carbon\Carbon::parse($state)->translatedFormat('l, d F Y - H:i')),
                 TextColumn::make('price')
                     ->searchable()
                     ->numeric()
-
                     ->suffix('€')
                     ->label('Precio'),
                 TextColumn::make('location')
@@ -127,7 +141,10 @@ class EventResource extends Resource
                 TextColumn::make('language')
                     ->searchable()
                     ->label('Idioma'),
-
+                TextColumn::make('latitude')
+                    ->label('Latitud'),
+                TextColumn::make('longitude')
+                    ->label('Longitud'),
             ])
             ->filters([
                 //
@@ -158,3 +175,4 @@ class EventResource extends Resource
         ];
     }
 }
+
