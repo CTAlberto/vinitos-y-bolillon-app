@@ -15,6 +15,8 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\CheckboxList;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\TextArea;
+use Filament\Forms\Components\RichEditor;
+
 
 
 
@@ -29,9 +31,10 @@ class EventResource extends Resource
     {
         return $form
             ->schema([
-                CheckboxList::make('instructor')
+                CheckboxList::make('instructors')
+                    ->label('Instructores')
                     ->relationship('instructors', 'name')
-                    ->label('Instructores'),
+                    ->required(),
                 Select::make('id_category')
                     ->label('Categoría')
                     ->relationship('category', 'name')
@@ -41,10 +44,9 @@ class EventResource extends Resource
                     ->maxLength(200)
                     ->label('Título del evento'),
                 Textarea::make(name:'subtitle')
-                    ->required()
                     ->maxLength(250)
                     ->label('Subtitulo'),
-                Textarea::make('description')
+                RichEditor::make('description')
                     ->required()
                     ->helperText(new HtmlString('Your <strong>full name</strong> here, including any middle names.'))
                     ->label('Descripción'),

@@ -11,7 +11,7 @@
                     Nuestros cursos te ofrecen experiencias educativas únicas, con horarios flexibles y múltiples localizaciones. Ya seas un principiante o un profesional, encontrarás un curso que se ajuste a tus necesidades.
                 </p>
                 <p class="text-muted" style="font-size: 1rem; text-align: center;">
-                    <i class="bi bi-clock-fill" style="color: #ff6f61;"></i> Horarios personalizables &nbsp;&bull;&nbsp; 
+                    <i class="bi bi-clock-fill" style="color: #ff6f61;"></i> Horarios personalizables &nbsp;&bull;&nbsp;
                     <i class="bi bi-geo-alt-fill" style="color: #ff6f61;"></i> Disponibles en distintas ciudades
                 </p>
             </div>
@@ -28,15 +28,15 @@
                     <!-- Imagen del curso -->
                     <div class="col-md-4" data-aos="fade-right">
                         <img src="{{ Vite::asset('resources/img/grapes-4290308_1280.jpg') }}" class="block w-full h-96 object-cover" alt="Vino 2">
-                        <!--<img src="{{ asset('images/cursos/' . $curso->image) }}" alt="{{ $curso->title_event }}" 
-                             class="img-fluid rounded" 
+                        <!--<img src="{{ asset('images/cursos/' . $curso->image) }}" alt="{{ $curso->title_event }}"
+                             class="img-fluid rounded"
                              style="object-fit: cover; height: 100%; width: 100%; border-radius: 8px;">-->
                     </div>
                     <!-- Contenido del curso -->
                     <div class="col-md-8" data-aos="fade-left">
                         <h5 class="card-title" style="font-weight: 600; color: #333;">{{ $curso->title_event }}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">{{ $curso->subtitle }}</h6>
-                        <p class="text-muted mb-2" style="font-size: 0.95rem;">{{ Str::limit($curso->description, 150, '...') }}</p>
+                        <p class="text-muted mb-2" style="font-size: 0.95rem;">{!! Str::limit(strip_tags($curso->description), 150, '...') !!}</p>
                         <ul class="list-inline text-muted mb-2" style="font-size: 0.9rem;">
                             <li class="list-inline-item"><strong>Inicio:</strong> {{ $curso->ini_date }}</li>
                             <li class="list-inline-item"><strong>Ubicación:</strong> {{ $curso->location }}</li>
