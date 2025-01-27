@@ -10,7 +10,7 @@ use App\Http\Controllers\AdminCursoController;
 use App\Http\Controllers\AdminContactoController;
 use App\Http\Controllers\SobreNosotrosController;
 use App\Http\Controllers\EmpresaController;
-
+use App\Http\Controllers\RegalaExperienciaController;
 use App\Http\Controllers\EventController;
 
 // Ruta para obtener los eventos en formato JSON
@@ -53,6 +53,9 @@ Route::get('/empresas/{id}', [EmpresaController::class, 'show'])->name('empresas
 Route::get('/calendar', function () {
     return view('components.calendar'); // Asegúrate de que la vista está en esta ubicación
 })->name('calendar.index');
+
+Route::get('/regala-experiencia', [RegalaExperienciaController::class, 'index'])->name('regala-experiencia.index');
+Route::post('/regala-experiencia', [RegalaExperienciaController::class, 'submit'])->name('regala-experiencia.submit');
 
 
 

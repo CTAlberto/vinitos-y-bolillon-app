@@ -32,10 +32,10 @@
             <div>
                 <h4 class="text-xl font-bold text-[#e3c16f] mb-4">Enlaces útiles</h4>
                 <ul class="space-y-2">
-                    <li><a href="/about" class="hover:text-[#e3c16f] transition">Sobre nosotros</a></li>
-                    <li><a href="/courses" class="hover:text-[#e3c16f] transition">Cursos</a></li>
-                    <li><a href="/privacy-policy" class="hover:text-[#e3c16f] transition">Política de privacidad</a></li>
-                    <li><a href="/terms" class="hover:text-[#e3c16f] transition">Términos y condiciones</a></li>
+                    <li><a href="/sobre-nosotros" class="hover:text-[#e3c16f] transition">Sobre nosotros</a></li>
+                    <li><a href="/cursos" class="hover:text-[#e3c16f] transition">Cursos</a></li>
+                    <li><a href="/politica-de-privacidad" class="hover:text-[#e3c16f] transition">Política de privacidad</a></li>
+                    <li><a href="/terminos-y-condiciones" class="hover:text-[#e3c16f] transition">Términos y condiciones</a></li>
                 </ul>
             </div>
 
