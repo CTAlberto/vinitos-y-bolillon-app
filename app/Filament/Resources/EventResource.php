@@ -49,15 +49,6 @@ class EventResource extends Resource
                     ->required()
                     ->helperText(new HtmlString('Your <strong>full name</strong> here, including any middle names.'))
                     ->label('Descripción'),
-                TextArea::make('content')
-                    ->required()
-                    ->helperText('Formato CSV, separado por punto y coma')
-                    ->placeholder('Ej: El Proceso de Vinificación;Elegir el vino adecuado;Etiquetas: Como leerlas')
-                    ->label('Contenido'),
-                TextArea::make('requirements')
-                    ->required()
-                    ->placeholder('Ej: Mayor de edad;Conocimientos previos en cata;Traer botella de agua')
-                    ->label('Requisitos'),
                 DateTimePicker::make('ini_date')
                     ->required()
                     ->label('Fecha de inicio'),
@@ -75,7 +66,6 @@ class EventResource extends Resource
                     ->numeric()
                     ->suffix('€')
                     ->label('Precio'),
-                TextInput::make('capacity'),
                 TextInput::make('latitude')
                     ->required()
                     ->label('Latitud'),
@@ -112,14 +102,9 @@ class EventResource extends Resource
                 TextColumn::make('title_event')
                     ->searchable()
                     ->label('Título del evento'),
-                TextColumn::make('subtitle')
-                    ->searchable()
-                    ->label('Subtítulo'),
-                TextColumn::make('description')
-                    ->searchable()
-                    ->label('Descripción'),
                 TextColumn::make('ini_date')
                     ->searchable()
+                    ->sortable()
                     ->label('Fecha de inicio')
                     ->formatStateUsing(fn($state) => \Carbon\Carbon::parse($state)->translatedFormat('l, d F Y - H:i')),
                 TextColumn::make('end_date')
@@ -130,6 +115,7 @@ class EventResource extends Resource
                 TextColumn::make('price')
                     ->searchable()
                     ->numeric()
+                    ->sortable()
                     ->suffix('€')
                     ->label('Precio'),
                 TextColumn::make('location')
@@ -137,17 +123,15 @@ class EventResource extends Resource
                     ->label('Lugar'),
                 TextColumn::make('capacity')
                     ->searchable()
+                    ->sortable()
                     ->label('Capacidad'),
                 TextColumn::make('language')
                     ->searchable()
                     ->label('Idioma'),
-                TextColumn::make('latitude')
-                    ->label('Latitud'),
-                TextColumn::make('longitude')
-                    ->label('Longitud'),
+
             ])
             ->filters([
-                //
+
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
