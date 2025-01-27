@@ -90,11 +90,11 @@
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
             </button>
-        </div>
-    </div>
+      
+   
 
     <!-- Llamado a la Acción -->
-    <div class="bg-gray-50 rounded-lg p-10 text-center" data-aos="fade-up" data-aos-duration="1000">
+    <div class="bg-gray-50 rounded-lg p-10 text-center mb-3" data-aos="fade-up" data-aos-duration="1000">
         <h3 class="text-2xl font-bold text-gray-800 mb-4">¿Listo para transformar tu equipo?</h3>
         <p class="text-lg text-gray-600 mb-6">
             Ponte en contacto con nosotros para obtener más información o personalizar un plan de formación para tu empresa.
