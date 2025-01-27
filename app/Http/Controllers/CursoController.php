@@ -10,10 +10,11 @@ class CursoController extends Controller
     public function index()
     {
         $cursos = Event::all(); // Obtenemos los eventos
-       
+
         return view('cursos.index', compact('cursos'));
+
     }
-    
+
 
 
     public function show($id)

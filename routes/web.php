@@ -11,6 +11,12 @@ use App\Http\Controllers\AdminContactoController;
 use App\Http\Controllers\SobreNosotrosController;
 use App\Http\Controllers\EmpresaController;
 
+use App\Http\Controllers\EventController;
+
+// Ruta para obtener los eventos en formato JSON
+Route::get('/api/events', [EventController::class, 'getEvents'])->name('api.events');
+
+
 // **Frontend Routes**
 Route::get('/', function () {
     return view('welcome'); // Portada o página principal
@@ -43,6 +49,10 @@ Route::get('/inscribirse/{id}', [CursoController::class, 'inscribirse'])->name('
 
 Route::get('/empresas', [EmpresaController::class, 'index'])->name('empresas.index');
 Route::get('/empresas/{id}', [EmpresaController::class, 'show'])->name('empresas.evento');
+
+Route::get('/calendar', function () {
+    return view('components.calendar'); // Asegúrate de que la vista está en esta ubicación
+})->name('calendar.index');
 
 
 
