@@ -53,6 +53,7 @@
                 <li><a class="text-dark hover:text-[#7b1228]" href="/sobre-nosotros">Sobre Nosotros</a></li>
                 <li><a class="text-dark hover:text-[#7b1228]" href="/empresas">Empresa</a></li>
                 <li><a class="text-dark hover:text-[#7b1228]" href="/contacto">Contacto</a></li>
+                <li><a class="text-dark hover:text-[#7b1228]" href="/regala-experiencia">Regala Experiencia</a></li>
             </ul>
         </nav>
 
