@@ -3,8 +3,8 @@
 @section('main-content')
 <br>
 <body class="bg-gray-50 font-sans">
-    <div class="min-h-screen flex flex-col items-center justify-center py-12 px-6 lg:px-8">
-        <div class="bg-white shadow-lg rounded-xl p-8 w-full max-w-6xl">
+    <div class="min-h-screen flex flex-col items-center justify-center py-12 px-6 lg:px-8 mt-10">
+        <div class="bg-white shadow-lg rounded-xl p-8 w-full max-w-6xl ">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <!-- Left Column: Contact Information and FAQ -->
                 <div class="space-y-8">
