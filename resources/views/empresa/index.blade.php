@@ -68,7 +68,7 @@
     <div class="bg-gray-100 rounded-lg p-8 mb-10" data-aos="fade-up" data-aos-duration="1000">
         <h2 class="text-center text-2xl font-bold text-gray-800 mb-6">Testimonios</h2>
         <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner text-center">
+            <div class="carousel-inner text-center mb-10">
                 <div class="carousel-item active">
                     <p class="text-lg text-gray-600">"La formación que recibimos fue increíblemente valiosa. Altamente recomendado."</p>
                     <h5 class="text-blue-500 font-semibold">Juan Pérez, Director de Recursos Humanos, XYZ Corp.</h5>
