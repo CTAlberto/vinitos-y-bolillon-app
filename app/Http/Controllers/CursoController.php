@@ -7,19 +7,38 @@ use App\Models\Event;
 
 class CursoController extends Controller
 {
+    // Muestra todos los cursos disponibles
     public function index()
     {
-        $cursos = Event::all(); // Obtenemos los eventos
-
+        $cursos = Event::all(); // Obtenemos todos los cursos
         return view('cursos.index', compact('cursos'));
-
     }
 
-
-
+    // Muestra el detalle de un curso en específico
     public function show($id)
     {
-        // Lógica para mostrar el detalle de un curso
-        return view('cursos.show', compact('id'));
+        $curso = Event::findOrFail($id); // Busca el curso, si no lo encuentra, lanza un error 404
+        return view('cursos.show', compact('curso'));
     }
+
+    // Muestra la vista de inscripción a un curso específico
+    public function inscribirse($id)
+    {
+        $curso = Event::findOrFail($id); // Busca el curso por su ID
+        return view('inscribirse.index', compact('curso')); // Carga la vista con los datos del curso
+    }
+    public function procesarInscripcion(Request $request, $id)
+{
+    // Buscar el curso
+    $curso = Event::findOrFail($id);
+
+    // Validar los datos del formulario
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'email' => 'required|email|max:255',
+    ]);
+
+    // Simulación de inscripción (puedes guardar en una tabla de inscripciones si tienes una)
+    return redirect()->route('inscribirse', $id)->with('success', '¡Inscripción realizada con éxito!');
+}
 }
