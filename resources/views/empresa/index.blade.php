@@ -99,7 +99,7 @@
         <p class="text-lg text-gray-600 mb-6">
             Ponte en contacto con nosotros para obtener más información o personalizar un plan de formación para tu empresa.
         </p>
-        <a href="/contact" class="bg-blue-500 text-white py-3 px-6 rounded-lg hover:bg-blue-600">Contáctanos ahora</a>
+        <a href="/contacto" class="bg-blue-500 text-white py-3 px-6 rounded-lg hover:bg-blue-600">Contáctanos ahora</a>
     </div>
 </div>
 @endsection
