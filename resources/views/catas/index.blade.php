@@ -26,8 +26,8 @@
             <div class="p-4 bg-gray-100 rounded-lg shadow-md transition-transform transform hover:scale-105 flex flex-col h-full" data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
                 <div class="flex flex-col md:flex-row items-center h-full">
                     <!-- Imagen de la cata -->
-                    <div class="w-full md:w-1/3" data-aos="fade-right">
-                        <img src="{{ Vite::asset('resources/img/sample-cata.jpg') }}" class="w-full h-48 object-cover rounded-lg shadow-sm" alt="{{ $cata->title_event }}">
+                    <div class="col-md-4" data-aos="fade-right">
+                        <img src="{{ Vite::asset('resources/img/grapes-4290308_1280.jpg') }}" class="block w-full h-96 object-cover" alt="Vino 2">
                     </div>
                     <!-- Contenido de la cata -->
                     <div class="w-full md:w-2/3 md:pl-4 flex flex-col justify-between h-full" data-aos="fade-left">
