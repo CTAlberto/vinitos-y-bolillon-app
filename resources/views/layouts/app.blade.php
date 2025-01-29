@@ -32,10 +32,10 @@
 
     </head>
     <body>
-        <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
+        <div class="min-h-screen bg-[#F8F9FA] dark:bg-gray-900">
             <x-header />
 
-            <div class="flex-grow w-full h-full p-0 bg-gradient-to-b from-gray-300 via-gray-100 to-gray-200">
+            <div class="flex-grow w-full h-full p-0 bg-gradient-to-b from-[#D4A017] via-[#F8F9FA] to-[#D4A017]">
                     @yield('main-content')
             </div>
             
