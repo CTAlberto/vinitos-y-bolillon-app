@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
 use Illuminate\Http\Request;
 use App\Models\Event;
+use App\Models\Contacto;
 
 class CursoController extends Controller
 {
@@ -53,17 +55,19 @@ class CursoController extends Controller
             'name' => 'required|string|max:255',
             'tel' => 'required|string|max:20',
             'email' => 'required|email|max:255',
+            'reason' => 'required|string',
         ]);
-
-        Inscripcion::create([
+    
+        Contact::create([
             'name' => $request->name,
-            'tel' => $request->telefono,
+            'tel' => $request->tel, // Corregido el nombre del campo
             'email' => $request->email,
             'event_id' => $request->curso_id,
             'validation' => 'pending',
-            'reason'=> $request->reason,
+            'reason' => $request->reason,
         ]);
-
-        return redirect()->route('cursos.index')->with('success', 'Inscripción realizada correctamente.');
+    
+        // Redirigir a la página de inscripción del curso
+        return redirect()->route('inscribirse', $request->curso_id)->with('success', '¡Inscripción realizada correctamente!');
     }
 }
