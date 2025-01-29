@@ -34,5 +34,6 @@
    
     <button type="submit" class="btn btn-primary">Inscribirse</button>
 </form>
+<div class="container mt-5 min-h-[30vh]">
 </div>
 @endsection
