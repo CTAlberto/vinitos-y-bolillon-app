@@ -31,8 +31,8 @@
         @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/calendar.js'])
 
     </head>
-    <body class="bg-[#F8F9FA] dark:bg-gray-900">
-        <div class="min-h-screen">
+    <body>
+        <div class="min-h-screen bg-[#F8F9FA] dark:bg-gray-900">
             <x-header />
 
             <div class="flex-grow w-full h-full p-0 bg-gradient-to-b from-[#D4A017] via-[#F8F9FA] to-[#D4A017]">

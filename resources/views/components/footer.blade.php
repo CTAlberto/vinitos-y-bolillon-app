@@ -1,4 +1,4 @@
-<footer class="bg-[#3E1E1E] text-[#C2A884] py-12">
+<footer class="bg-[#3E1E1E] text-[#C2A884] py-10">
     <div class="container mx-auto px-4">
         <!-- Contenedor principal del footer -->
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -71,7 +71,7 @@
         <div class="border-t border-[#D4A017] mt-10"></div>
 
         <!-- Créditos -->
-        <div class="text-center mt-6 text-sm">
+        <div class="text-center mt-4 text-sm">
             <p>© 2025 South Wines Academy. Todos los derechos reservados.</p>
         </div>
     </div>
