@@ -64,17 +64,16 @@
 
 <script>
     document.getElementById('inscripcionForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Evita el envío inmediato
+        event.preventDefault(); // Evita el envío inmediato del formulario
         document.getElementById('modal').classList.remove('hidden'); // Muestra el modal
     });
 
     document.getElementById('confirmBtn').addEventListener('click', function() {
-        document.getElementById('inscripcionForm').submit(); // Ahora sí envía el formulario
+        document.getElementById('inscripcionForm').submit(); //envía el formulario
     });
 </script>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
@@ -98,7 +97,6 @@
                         }).addTo(maps[modalId]);
                         L.marker([lat, lng]).addTo(maps[modalId]);
                     } else {
-                        // Recalibrar si el mapa ya existe
                         maps[modalId].invalidateSize();
                     }
                 });
