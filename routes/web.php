@@ -17,7 +17,6 @@ use App\Http\Controllers\EventController;
 // Ruta para obtener los eventos en formato JSON
 Route::get('/api/events', [EventController::class, 'getEvents'])->name('api.events');
 
-
 // **Frontend Routes**
 Route::get('/', function () {
     return view('welcome'); // Portada o página principal
@@ -49,10 +48,6 @@ Route::get('/cursos/{id}/reseñas', [ResenaController::class, 'index'])->name('c
 Route::get('/inscribirse/{id}', [CursoController::class, 'inscribirse'])->name('inscribirse');
 Route::post('/inscribirse', [CursoController::class, 'store'])->name('procesar.inscripcion');
 
-
-
-
-
 Route::get('/empresas', [EmpresaController::class, 'index'])->name('empresas.index');
 Route::get('/empresas/{id}', [EmpresaController::class, 'show'])->name('empresas.evento');
 
@@ -62,9 +57,6 @@ Route::get('/calendar', function () {
 
 Route::get('/regala-experiencia', [RegalaExperienciaController::class, 'index'])->name('regala-experiencia.index');
 Route::post('/regala-experiencia', [RegalaExperienciaController::class, 'submit'])->name('regala-experiencia.submit');
-
-
-
 
 // **Admin Routes**
 /*Route::prefix('admin')->middleware(['auth'])->group(function () {
