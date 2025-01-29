@@ -51,6 +51,13 @@
             </div>
         </div>
     </div>
+    <div style="display: none;">
+        <input type="hidden" name="curso_id" value="{{ $curso->id }}">
+    </div>
+   
+    <button type="submit" class="btn btn-primary">Inscribirse</button>
+</form>
+<div class="container mt-5 min-h-[30vh]">
 </div>
 
 <!-- Modal de Confirmación -->
