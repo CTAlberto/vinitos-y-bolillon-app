@@ -13,6 +13,7 @@ use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\RegalaExperienciaController;
 use App\Http\Controllers\EventController;
 
+
 // Ruta para obtener los eventos en formato JSON
 Route::get('/api/events', [EventController::class, 'getEvents'])->name('api.events');
 
@@ -46,7 +47,11 @@ Route::get('/terminos-y-condiciones', function () {
 
 Route::get('/cursos/{id}/reseñas', [ResenaController::class, 'index'])->name('cursos.reseñas'); // Reseñas de curso
 Route::get('/inscribirse/{id}', [CursoController::class, 'inscribirse'])->name('inscribirse');
-Route::post('/inscribirse/{id}', [CursoController::class, 'procesarInscripcion'])->name('procesar.inscripcion');
+Route::post('/inscribirse', [CursoController::class, 'store'])->name('procesar.inscripcion');
+
+
+
+
 
 Route::get('/empresas', [EmpresaController::class, 'index'])->name('empresas.index');
 Route::get('/empresas/{id}', [EmpresaController::class, 'show'])->name('empresas.evento');

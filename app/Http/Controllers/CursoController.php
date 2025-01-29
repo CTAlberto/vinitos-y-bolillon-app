@@ -41,4 +41,29 @@ class CursoController extends Controller
     // Simulación de inscripción (puedes guardar en una tabla de inscripciones si tienes una)
     return redirect()->route('inscribirse', $id)->with('success', '¡Inscripción realizada con éxito!');
 }
+    public function create($id)
+    {
+        $curso = Event::findOrFail($id);
+        return view('inscribirse', compact('curso'));
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'tel' => 'required|string|max:20',
+            'email' => 'required|email|max:255',
+        ]);
+
+        Inscripcion::create([
+            'name' => $request->name,
+            'tel' => $request->telefono,
+            'email' => $request->email,
+            'event_id' => $request->curso_id,
+            'validation' => 'pending',
+            'reason'=> $request->reason,
+        ]);
+
+        return redirect()->route('cursos.index')->with('success', 'Inscripción realizada correctamente.');
+    }
 }
