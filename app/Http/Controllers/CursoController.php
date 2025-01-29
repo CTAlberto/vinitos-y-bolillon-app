@@ -5,14 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Contact;
 use Illuminate\Http\Request;
 use App\Models\Event;
-use App\Models\Contacto;
 
 class CursoController extends Controller
 {
     // Muestra todos los cursos disponibles
     public function index()
     {
-        $cursos = Event::all(); // Obtenemos todos los cursos
+        $cursos = Event::where('id_category', 2)->get(); // Obtenemos solo los cursos con id_category igual a 2
         return view('cursos.index', compact('cursos'));
     }
 
@@ -29,45 +28,29 @@ class CursoController extends Controller
         $curso = Event::findOrFail($id); // Busca el curso por su ID
         return view('inscribirse.index', compact('curso')); // Carga la vista con los datos del curso
     }
-    public function procesarInscripcion(Request $request, $id)
-{
-    // Buscar el curso
-    $curso = Event::findOrFail($id);
 
-    // Validar los datos del formulario
-    $request->validate([
-        'name' => 'required|string|max:255',
-        'email' => 'required|email|max:255',
-    ]);
-
-    // Simulación de inscripción (puedes guardar en una tabla de inscripciones si tienes una)
-    return redirect()->route('inscribirse', $id)->with('success', '¡Inscripción realizada con éxito!');
-}
-    public function create($id)
-    {
-        $curso = Event::findOrFail($id);
-        return view('inscribirse', compact('curso'));
-    }
-
+    // Lógica para procesar la inscripción
     public function store(Request $request)
     {
+        // Validar los datos del formulario
         $request->validate([
             'name' => 'required|string|max:255',
             'tel' => 'required|string|max:20',
             'email' => 'required|email|max:255',
             'reason' => 'required|string',
         ]);
-    
+
+        // Crear un nuevo registro de contacto
         Contact::create([
             'name' => $request->name,
-            'tel' => $request->tel, // Corregido el nombre del campo
+            'tel' => $request->tel,
             'email' => $request->email,
             'event_id' => $request->curso_id,
             'validation' => 'pending',
             'reason' => $request->reason,
         ]);
-    
-        // Redirigir a la página de inscripción del curso
-        return redirect()->route('inscribirse', $request->curso_id)->with('success', '¡Inscripción realizada correctamente!');
+
+        // Redirigir al inicio con mensaje de éxito
+        return redirect()->route('welcome')->with('success', '¡Inscripción realizada correctamente!');
     }
 }

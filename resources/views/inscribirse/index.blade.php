@@ -64,12 +64,13 @@
 
 <script>
     document.getElementById('inscripcionForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Evita el envío inmediato del formulario
+        event.preventDefault(); // Evita el envío inmediato
         document.getElementById('modal').classList.remove('hidden'); // Muestra el modal
     });
 
     document.getElementById('confirmBtn').addEventListener('click', function() {
-        document.getElementById('inscripcionForm').submit(); //envía el formulario
+        // Envia el formulario después de hacer clic en "Aceptar"
+        document.getElementById('inscripcionForm').submit();
     });
 </script>
 
@@ -80,14 +81,12 @@
     document.addEventListener('DOMContentLoaded', function () {
         let maps = {};
 
-        // Escuchar cuando cualquier modal se abre
         document.querySelectorAll('[data-bs-toggle="modal"]').forEach(button => {
             button.addEventListener('click', function () {
                 const modalId = this.getAttribute('data-bs-target');
                 const lat = this.getAttribute('data-lat');
                 const lng = this.getAttribute('data-lng');
 
-                // Inicializar el mapa al abrir el modal
                 document.querySelector(modalId).addEventListener('shown.bs.modal', function () {
                     if (!maps[modalId]) {
                         maps[modalId] = L.map(modalId.replace('#modal-', 'map-')).setView([lat, lng], 13);
