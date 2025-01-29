@@ -8,6 +8,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const calendarEl = document.getElementById('calendar');
 
     if (calendarEl) {
+        // Obtener la categoría del data attribute
+        const category = calendarEl.dataset.category;
+        
         const calendar = new Calendar(calendarEl, {
             plugins: [dayGridPlugin, interactionPlugin, timeGridPlugin],
             initialView: 'dayGridMonth',
@@ -17,7 +20,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 right: 'dayGridMonth,timeGridWeek,timeGridDay',
             },
             events: function (info, successCallback, failureCallback) {
-                fetch('/api/events')
+                let url = '/api/events';
+                if(category) {
+                    url += `?category=${category}`;
+                }
+                
+                fetch(url)
                     .then(response => response.json())
                     .then(events => {
                         const filteredEvents = events.flatMap(event => {
@@ -28,14 +36,14 @@ document.addEventListener('DOMContentLoaded', function () {
                                     ...event,
                                     start: start,
                                     end: start,
-                                    color: '#8B0000', // Rojo oscuro (vino tinto)
+                                    color: event.id_category === 1 ? '#8B0000' : '#1E90FF', // Rojo para catas (1), Azul para cursos (3)
                                     title: `${event.title} - Inicio`,
                                 },
                                 {
                                     ...event,
                                     start: end,
                                     end: end,
-                                    color: '#FFBF00', // Ámbar (vino de Jerez)
+                                    color: event.id_category === 1 ? '#FFBF00' : '#00CED1', // Ámbar para catas (1), Turquesa para cursos (3)
                                     title: `${event.title} - Fin`,
                                 },
                             ];
@@ -47,12 +55,17 @@ document.addEventListener('DOMContentLoaded', function () {
             eventClick: function (info) {
                 Swal.fire({
                     title: info.event.title,
-                    text: `Fecha: ${info.event.start.toLocaleString()}`,
+                    html: `
+                        <div class="text-left">
+                            <p class="mb-2"><strong>Fecha:</strong> ${info.event.start.toLocaleString()}</p>
+                            <p class="mb-2"><strong>Tipo:</strong> ${info.event.extendedProps.id_category === 1 ? 'Cata' : 'Curso'}</p>
+                        </div>
+                    `,
                     icon: 'info',
                     confirmButtonText: 'Cerrar',
-                    confirmButtonColor: '#D4A017', // Dorado cálido
+                    confirmButtonColor: '#D4A017',
                     customClass: {
-                        popup: 'rounded-lg shadow-xl', // Estilos de Tailwind para SweetAlert2
+                        popup: 'rounded-lg shadow-xl',
                         confirmButton: 'bg-[#D4A017] hover:bg-[#8B0000] text-white font-bold py-2 px-4 rounded',
                     },
                 });
@@ -60,7 +73,9 @@ document.addEventListener('DOMContentLoaded', function () {
             eventContent: function (eventInfo) {
                 return {
                     html: `
-                        <div class="text-white p-1 rounded-md shadow-sm text-xs transition-transform transform hover:scale-105" style="background-color: ${eventInfo.event.backgroundColor}">
+                        <div class="text-white p-1 rounded-md shadow-sm text-xs transition-transform transform hover:scale-105" 
+                             style="background-color: ${eventInfo.event.backgroundColor};
+                                    border: 1px solid ${eventInfo.event.borderColor};">
                             ${eventInfo.event.title}
                         </div>
                     `,
@@ -77,14 +92,13 @@ document.addEventListener('DOMContentLoaded', function () {
                     end: endDate.toISOString().split('T')[0],
                 };
             },
-            height: 'auto', // Altura automática para evitar el scroll
-            aspectRatio: 1.1, // Relación de aspecto más compacta
+            height: 'auto',
+            aspectRatio: 1.1,
             slotMinTime: '08:00:00',
             slotMaxTime: '20:00:00',
             expandRows: true,
-            dayMaxEventRows: 2, // Mostrar hasta 2 filas de eventos por día
+            dayMaxEventRows: 2,
             eventDisplay: 'block',
-            // Personalización de estilos con Tailwind
             themeSystem: 'standard',
             buttonText: {
                 today: 'Hoy',
@@ -92,10 +106,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 week: 'Semana',
                 day: 'Día',
             },
-            eventBackgroundColor: '#8B0000', // Color de fondo por defecto para eventos
-            eventBorderColor: '#D4A017', // Color del borde de los eventos
-            eventTextColor: '#FFFFFF', // Color del texto de los eventos
-            
+            eventBorderColor: '#D4A017',
+            eventTextColor: '#FFFFFF',
             dayCellContent: function (info) {
                 return {
                     html: `
@@ -119,17 +131,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 next: 'chevron-right',
                 today: 'calendar',
             },
-            buttonText: {
-                today: 'Hoy',
-                month: 'Mes',
-                week: 'Semana',
-                day: 'Día',
-            },
             eventMouseEnter: function (info) {
-                info.el.classList.add('scale-105', 'shadow-lg'); // Escala y sombra al hacer hover
+                info.el.classList.add('scale-105', 'shadow-lg');
             },
             eventMouseLeave: function (info) {
-                info.el.classList.remove('scale-105', 'shadow-lg'); // Restablece al salir
+                info.el.classList.remove('scale-105', 'shadow-lg');
             },
         });
 

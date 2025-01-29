@@ -51,9 +51,14 @@ Route::post('/inscribirse', [CursoController::class, 'store'])->name('procesar.i
 Route::get('/empresas', [EmpresaController::class, 'index'])->name('empresas.index');
 Route::get('/empresas/{id}', [EmpresaController::class, 'show'])->name('empresas.evento');
 
-Route::get('/calendar', function () {
-    return view('components.calendar'); // Asegúrate de que la vista está en esta ubicación
-})->name('calendar.index');
+// Elimina la ruta actual del calendario y agrega estas:
+Route::get('/calendar/courses', function () {
+    return view('components.calendar', ['category' => 3]);
+})->name('calendar.courses');
+
+Route::get('/calendar/tastings', function () {
+    return view('components.calendar', ['category' => 1]);
+})->name('calendar.tastings');
 
 Route::get('/regala-experiencia', [RegalaExperienciaController::class, 'index'])->name('regala-experiencia.index');
 Route::post('/regala-experiencia', [RegalaExperienciaController::class, 'submit'])->name('regala-experiencia.submit');

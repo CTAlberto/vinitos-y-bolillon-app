@@ -21,10 +21,12 @@
                         <i class="fas fa-chevron-down ml-1 text-sm"></i>
                     </a>
                     <!-- Submenú -->
-                    <ul id="submenu-cursos" class="absolute hidden bg-[#4C1A2B] shadow-lg rounded-lg py-2 mt-2 transition-opacity duration-300 ease-in-out opacity-0"
-                        onmouseenter="showSubmenu('cursos')" onmouseleave="hideSubmenu('cursos')">
+                    <ul id="submenu-cursos" class="submenu absolute hidden bg-[#4C1A2B] shadow-lg rounded-lg py-2 mt-2 transition-opacity duration-300 ease-in-out opacity-0"
+                        onmouseenter="clearTimeout(submenuTimeout)" 
+                        onmouseleave="hideSubmenu('cursos')">
                         <li>
-                            <a class="block px-6 py-3 text-[#D4A017] hover:text-white hover:bg-[#722F37] transition-all duration-300 rounded-lg transform hover:scale-105" href="/calendar">
+                            <a class="block px-6 py-3 text-[#D4A017] hover:text-white hover:bg-[#722F37] transition-all duration-300 rounded-lg transform hover:scale-105" 
+                               href="{{ route('calendar.courses') }}">
                                 <i class="fas fa-calendar-alt mr-2"></i> Calendario
                             </a>
                         </li>
@@ -38,10 +40,12 @@
                         <i class="fas fa-chevron-down ml-1 text-sm"></i>
                     </a>
                     <!-- Submenú -->
-                    <ul id="submenu-catas" class="absolute hidden bg-[#4C1A2B] shadow-lg rounded-lg py-2 mt-2 transition-opacity duration-300 ease-in-out opacity-0"
-                        onmouseenter="showSubmenu('catas')" onmouseleave="hideSubmenu('catas')">
+                    <ul id="submenu-catas" class="submenu absolute hidden bg-[#4C1A2B] shadow-lg rounded-lg py-2 mt-2 transition-opacity duration-300 ease-in-out opacity-0"
+                        onmouseenter="clearTimeout(submenuTimeout)"
+                        onmouseleave="hideSubmenu('catas')">
                         <li>
-                            <a class="block px-6 py-3 text-[#D4A017] hover:text-white hover:bg-[#722F37] transition-all duration-300 rounded-lg transform hover:scale-105" href="/calendar">
+                            <a class="block px-6 py-3 text-[#D4A017] hover:text-white hover:bg-[#722F37] transition-all duration-300 rounded-lg transform hover:scale-105" 
+                               href="{{ route('calendar.tastings') }}">
                                 <i class="fas fa-calendar-alt mr-2"></i> Calendario
                             </a>
                         </li>
@@ -72,7 +76,8 @@
                 </a>
                 <ul class="pl-4 mt-2 space-y-2">
                     <li>
-                        <a class="block px-6 py-3 text-[#D4A017] hover:text-white hover:bg-[#722F37] transition-all duration-300 rounded-lg transform hover:scale-105" href="/calendar">
+                        <a class="block px-6 py-3 text-[#D4A017] hover:text-white hover:bg-[#722F37] transition-all duration-100 rounded-lg transform hover:scale-105" 
+                           href="{{ route('calendar.courses') }}">
                             <i class="fas fa-calendar-alt mr-2"></i> Calendario
                         </a>
                     </li>
@@ -85,7 +90,8 @@
                 </a>
                 <ul class="pl-4 mt-2 space-y-2">
                     <li>
-                        <a class="block px-6 py-3 text-[#D4A017] hover:text-white hover:bg-[#722F37] transition-all duration-300 rounded-lg transform hover:scale-105" href="/calendar">
+                        <a class="block px-6 py-3 text-[#D4A017] hover:text-white hover:bg-[#722F37] transition-all duration-100 rounded-lg transform hover:scale-105" 
+                           href="{{ route('calendar.tastings') }}">
                             <i class="fas fa-calendar-alt mr-2"></i> Calendario
                         </a>
                     </li>
@@ -99,31 +105,25 @@
 </header>
 
 <script>
-    // Funciones para mostrar y ocultar el submenú
+    let submenuTimeout = null;
+
     function showSubmenu(id) {
+        clearTimeout(submenuTimeout);
         const submenu = document.getElementById(`submenu-${id}`);
-        submenu.classList.remove('hidden');
-        setTimeout(() => {
-            submenu.classList.remove('opacity-0');
-        }, 10); // Pequeño retraso para permitir que el navegador procese la eliminación de 'hidden'
+        submenu.classList.remove('hidden', 'opacity-0');
     }
 
     function hideSubmenu(id) {
         const submenu = document.getElementById(`submenu-${id}`);
-        submenu.classList.add('opacity-0');
-        setTimeout(() => {
-            if (submenu.classList.contains('opacity-0')) {
-                submenu.classList.add('hidden');
-            }
-        }, 300); // Tiempo de espera para que la transición de opacidad se complete
+        submenuTimeout = setTimeout(() => {
+            submenu.classList.add('opacity-0');
+            setTimeout(() => submenu.classList.add('hidden'), 150);
+        }, 300); // Tiempo aumentado para permitir hacer clic
     }
 
-    // Script para manejar el menú móvil
     document.getElementById('menu-toggle').addEventListener('click', function() {
-        var mobileMenu = document.getElementById('mobile-menu');
-        mobileMenu.classList.toggle('hidden');
+        document.getElementById('mobile-menu').classList.toggle('hidden');
     });
 </script>
 
-<!-- Iconos sacados de Font Awesome -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
