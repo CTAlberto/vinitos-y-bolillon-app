@@ -4,3 +4,13 @@
 @import '@fullcalendar/core/main.css';
 @import '@fullcalendar/daygrid/main.css';
 
+/* Estilos para mantener el contenido fijo */
+#step2, #step3, #step4 {
+    position: sticky;
+    top: 20px; /* Ajusta según sea necesario */
+    background: white;
+    z-index: 10;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
