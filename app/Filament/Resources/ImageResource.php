@@ -33,10 +33,9 @@ class ImageResource extends Resource
                         ->image()
                         ->directory('images')
                         ->visibility('public')
+                        ->imageEditor()
                         ->required(),
-
-                    Forms\Components\Select::make('fk_id') // Este campo es la clave foránea en la tabla `images`
-
+                    Forms\Components\Select::make('fk_id')
                     ->label('Evento')
                     ->relationship('event', 'title_event')
                     ->required(),
@@ -56,8 +55,10 @@ class ImageResource extends Resource
                     ->label('ID')
                     ->searchable()
                     ->sortable(),
-                ImageColumn::make('name')
-                ->label('Imagen'),
+                    ImageColumn::make('name')
+                    ->visibility('public')
+                    ->disk('public')
+                    ->label('Imagen'),
                 Tables\Columns\TextColumn::make('event.title_event')
                     ->label('Evento'),
                 Tables\Columns\TextColumn::make('event.ini_date')
@@ -70,7 +71,7 @@ class ImageResource extends Resource
             ->filters([
                 SelectFilter::make('event_id')
                 ->label('Evento')
-                ->relationship('event', 'title_event') // Define la relación con la tabla `events`
+                ->relationship('event', 'title_event')
                 ->placeholder('Todos los eventos'),
 
                 SelectFilter::make('is_active')
