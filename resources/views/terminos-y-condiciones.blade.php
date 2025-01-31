@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('main-content')
-<div class="bg-gray-50 py-10">
-    <div class="container mx-auto max-w-4xl bg-white shadow-md rounded-lg p-6 mt-16">
+<div class="py-10">
+    <div class="container mx-auto max-w-4xl shadow-md rounded-lg p-6 mt-16 bg-white">
         <h1 class="text-3xl font-bold text-gray-800 mb-4 border-b-2 border-gray-200 pb-2">Términos y Condiciones</h1>
         <p class="text-gray-600 mb-6">Última actualización: <span class="font-semibold">{{ date('d/m/Y') }}</span></p>
         
