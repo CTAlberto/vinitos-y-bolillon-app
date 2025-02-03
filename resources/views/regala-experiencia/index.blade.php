@@ -104,7 +104,8 @@
 
 
 <!-- Librerías y Scripts (Confeti, SweetAlert y Flatpickr) -->
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+<!-- Añade Lottie -->
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
@@ -276,25 +277,40 @@
     }
 
     function submitForm() {
-        Swal.fire({
-            title: '¡Éxito!',
-            text: '🎉 ¡Regalo enviado con éxito!',
-            icon: 'success',
-            confirmButtonText: 'Aceptar',
-            backdrop: true,
-            allowOutsideClick: false,
-            timer: 3000
-        }).then(() => {
-            confetti({
-                particleCount: 200,
-                spread: 70,
-                origin: { y: 0.6 }
-            });
-            setTimeout(() => {
-                window.location.href = "{{ url('/welcome') }}";
-            }, 1000);
-        });
-    }
+    Swal.fire({
+        title: '¡Éxito!',
+        text: '🎉 ¡Regalo enviado con éxito!',
+        icon: 'success',
+        confirmButtonText: 'Aceptar',
+        backdrop: true,
+        allowOutsideClick: false,
+        timer: 3000
+    }).then(() => {
+        // Mostrar animación de Lottie
+        const animationContainer = document.createElement('div');
+        animationContainer.style.position = 'fixed'; // Para que la animación se superponga
+        animationContainer.style.top = '50%';
+        animationContainer.style.left = '50%';
+        animationContainer.style.transform = 'translate(-50%, -50%)';
+        animationContainer.style.zIndex = '1000'; // Asegura que esté por encima de otros elementos
+        animationContainer.innerHTML = `
+            <lottie-player
+                src="{{ Vite::asset('resources/animation/wine-animation.json') }}"
+                background="transparent"
+                speed="1"
+                style="width: 300px; height: 300px;"
+                autoplay>
+            </lottie-player>
+        `;
+        document.body.appendChild(animationContainer);
+        console.log("Animación agregada al DOM"); // Depuración
+
+        // Redirigir después de la animación
+        setTimeout(() => {
+            window.location.href = "{{ url('/welcome') }}";
+        }, 5000); // Ajusta el tiempo según la duración de la animación
+    });
+}
 </script>
 
 @endsection
