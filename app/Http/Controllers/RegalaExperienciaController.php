@@ -11,8 +11,9 @@ class RegalaExperienciaController extends Controller
 {
     public function index()
     {
-            $cursos = Event::all(); // Trae todos los cursos de la base de datos
-        return view('regala-experiencia.index', compact('cursos'));
+        $cursos = Event::where('id_category', 2)->get();
+        $catas  = Event::where('id_category', 1)->get();
+        return view('regala-experiencia.index', compact('cursos', 'catas'));
     }
 
     public function submit(Request $request)

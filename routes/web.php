@@ -69,7 +69,7 @@ Route::get('/calendar/tastings', function () {
 })->name('calendar.tastings');
 
 // **Regala Experiencia Routes**
-Route::get('/regala-experiencia', [RegalaExperienciaController::class, 'index'])->name('regala-experiencia.index'); // Página de regala experiencia
+Route::get('/regala-experiencia', [RegalaExperienciaController::class, 'index'])->name('regala-experiencia.index');
 Route::post('/regala-experiencia', [RegalaExperienciaController::class, 'submit'])->name('regala-experiencia.submit'); // Enviar regalo experiencia
 
 // **Admin Routes (Comentadas para acceso solo autenticado)**
