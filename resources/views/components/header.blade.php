@@ -12,7 +12,7 @@
         <!-- Menú de Navegación -->
         <nav class="hidden md:block">
             <ul class="flex space-x-6">
-                <li><a class="text-[#D4A017] hover:text-[#B76E79]" href="/">Inicio</a></li>
+                <li><a class="text-[#D4A017] hover:text-[#B76E79]" href="/welcome">Inicio</a></li>
                 
                 <!-- Submenú para Cursos -->
                 <li class="relative group" onmouseenter="showSubmenu('cursos')" onmouseleave="hideSubmenu('cursos')">
