@@ -7,18 +7,20 @@ use App\Models\Contact;
 
 class EventsChart extends ChartWidget
 {
-    protected static ?string $heading = 'Chart';
+    protected static ?string $heading = 'Solicitudes a eventos';
+
 
     protected function getData(): array
     {
-        $contacts = Contact::selectRaw('MONTH(created_at) as month, COUNT(*) as total')
-            ->groupBy('month')
-            ->orderBy('month')
-            ->pluck('total', 'month')
-            ->toArray();
+        $contacts = Contact::join('events', 'contacts.event_id', '=', 'events.id')
+    ->selectRaw('MONTH(events.ini_date) as month, COUNT(*) as total')
+    ->groupBy('month')
+    ->orderBy('month')
+    ->pluck('total', 'month')
+    ->toArray();
 
-        // Generar array con 12 meses, asignando 0 si no hay datos en algún mes
-        $data = array_fill(1, 12, 0); // Llena un array de 12 posiciones con 0
+
+        $data = array_fill(1, 12, 0);
         foreach ($contacts as $month => $total) {
             $data[$month] = $total;
         }
@@ -27,10 +29,11 @@ class EventsChart extends ChartWidget
             'datasets' => [
                 [
                     'label' => 'Asistencia a eventos',
-                    'data' => array_values($data), // Convertir a un array de valores
+                    'data' => array_values($data),
+                    'backgroundColor' => 'rgba(54, 162, 235, 0.2)',
                 ],
             ],
-            'labels' => ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            'labels' => ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
         ];
     }
 

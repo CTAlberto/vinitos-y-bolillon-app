@@ -58,9 +58,6 @@ class EventResource extends Resource
                 TextInput::make('location')
                     ->required()
                     ->label('Lugar'),
-                ViewField::make('map')
-                    ->view('components.map')
-                    ->label('Seleccionar ubicación en el mapa'),
                 TextInput::make('price')
                     ->required()
                     ->numeric()

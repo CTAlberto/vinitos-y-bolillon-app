@@ -19,7 +19,6 @@ class StatsOverview extends BaseWidget
             ->color('success'),
 
             Stat::make('Contactos pendientes de revisión', $pending),
-            Stat::make('Average time on page', '3:12'),
         ];
     }
 }
