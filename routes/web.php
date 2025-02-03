@@ -18,8 +18,12 @@ Route::get('/api/events', [EventController::class, 'getEvents'])->name('api.even
 
 // **Frontend Routes**
 Route::get('/', function () {
-    return view('welcome'); // Portada o página principal
-})->name('welcome'); // Página principal o portada
+    return view('landing'); // Portada o página principal
+})->name('landing'); // Página principal o portada
+
+Route::get('/welcome', function () {
+    return view('welcome'); // Página de inicio
+})->name('welcome'); // Página de inicio
 
 // **Cursos Routes**
 Route::get('/cursos', [CursoController::class, 'index'])->name('cursos.index'); // Listado de cursos
