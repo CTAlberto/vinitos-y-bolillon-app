@@ -12,6 +12,7 @@
     <div class="bg-white shadow-lg rounded-lg p-6 min-h-[400px]" data-aos="fade-up" data-aos-delay="200">
         <!-- Contenedor Dinámico para los Pasos e Interfaces -->
         <div id="dynamicStepContainer"></div>
+        
 
         <!-- Campo oculto para almacenar el ID seleccionado -->
         <input type="hidden" id="experience_id" name="experience_id">
@@ -19,7 +20,6 @@
 </div>
 
 <!-- Templates Ocultos para las Listas de Cursos y Catas -->
-<!-- Lista de Cursos -->
 <!-- Lista de Cursos -->
 <div id="coursesList" class="hidden">
     <h2 class="text-2xl font-bold text-gray-800 mb-4">Elige un Curso</h2>
@@ -122,12 +122,12 @@
                 <h2 class="text-2xl font-bold text-gray-800 mb-4">Elige una Experiencia</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div class="cursor-pointer border rounded-lg p-6 hover:shadow-md transition-shadow transform hover:scale-105" onclick="showCourses()">
-                        <img src="{{ Vite::asset('resources/img/course.jpg') }}" alt="Cursos" class="w-full h-48 object-cover rounded-t-lg">
+                        <img src="{{ Vite::asset('resources/img/regalocata.jpg') }}" alt="Cursos" class="w-full h-48 object-cover rounded-t-lg">
                         <h3 class="text-xl font-semibold text-gray-800 mt-4">Cursos</h3>
                         <p class="text-gray-600">Explora nuestros cursos de cata.</p>
                     </div>
                     <div class="cursor-pointer border rounded-lg p-6 hover:shadow-md transition-shadow transform hover:scale-105" onclick="showTastings()">
-                        <img src="{{ Vite::asset('resources/img/tasting.jpg') }}" alt="Catas" class="w-full h-48 object-cover rounded-t-lg">
+                        <img src="{{ Vite::asset('resources/img/regalocata.jpg') }}" alt="Catas" class="w-full h-48 object-cover rounded-t-lg">
                         <h3 class="text-xl font-semibold text-gray-800 mt-4">Catas</h3>
                         <p class="text-gray-600">Descubre nuestras catas exclusivas.</p>
                     </div>
