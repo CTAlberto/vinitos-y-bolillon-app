@@ -71,7 +71,7 @@
                 <div class="flex flex-col md:flex-row items-center h-full">
                     <!-- Imagen de la cata -->
                     <div class="col-md-4" data-aos="fade-right">
-                        <img src="{{ Vite::asset('resources/img/wine-tasting.jpg') }}" class="block w-full h-96 object-cover" alt="{{ $cata->title_event }}">
+                        <img src="{{ Vite::asset('resources/img/grapes-4290308_1280.jpg') }}" class="block w-full h-96 object-cover" alt="{{ $cata->title_event }}">
                     </div>
                     <!-- Contenido de la cata -->
                     <div class="w-full md:w-2/3 md:pl-4 flex flex-col justify-between h-full" data-aos="fade-left">
