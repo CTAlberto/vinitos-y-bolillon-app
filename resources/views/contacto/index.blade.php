@@ -6,7 +6,7 @@
     <div class="min-h-screen flex flex-col items-center justify-center py-12 px-6 lg:px-8 mt-10">
         <div class="bg-white shadow-lg rounded-xl p-8 w-full max-w-6xl ">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <!-- Left Column: Contact Information and FAQ -->
+                
                 <div class="space-y-8">
                     <div class="text-center">
                         <img src="{{ Vite::asset('resources/img/logotipo.png') }}" alt="Logotipo" class="mx-auto max-h-16">
@@ -39,11 +39,11 @@
                     </div>
                 </div>
 
-                <!-- Right Column: Contact Form -->
+  
                 <div class="space-y-8">
                     <h1 class="text-3xl font-bold text-gray-700 text-center">Formulario de Contacto</h1>
 
-                    <!-- Alpine.js Form -->
+                    
                     <div x-data="contactForm()" class="space-y-6">
                         <!-- Mensajes de éxito o error -->
                         <template x-if="successMessage">
@@ -105,7 +105,7 @@
         </div>
     </div>
 
-    <!-- Alpine.js Logic -->
+    <!-- Alpine logica -->
     <script>
         function contactForm() {
             return {

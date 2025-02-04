@@ -1,4 +1,3 @@
-<!-- filepath: /c:/Users/jrubi/Documents/DAW/PHP/vinitos-y-bolillon-app/resources/views/components/map.blade.php -->
 <div id="map" style="height: 300px;"></div>
 
 <div class="mt-2">
@@ -46,9 +45,6 @@
                         document.querySelector('input[name="latitude"]').value = y.toFixed(8);
                         document.querySelector('input[name="longitude"]').value = x.toFixed(8);
 
-                        // Verificar los valores actualizados
-                        console.log('Latitud:', y.toFixed(8));
-                        console.log('Longitud:', x.toFixed(8));
                     }
                 });
             });

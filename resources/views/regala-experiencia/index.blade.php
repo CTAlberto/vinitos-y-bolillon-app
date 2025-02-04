@@ -104,7 +104,6 @@
 
 
 <!-- Librerías y Scripts (Confeti, SweetAlert y Flatpickr) -->
-<!-- Añade Lottie -->
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
@@ -148,7 +147,6 @@
         document.getElementById('dynamicStepContainer').innerHTML = document.getElementById('tastingsList').innerHTML;
     }
 
-    // Funciones para iniciar el flujo de pasos tras la selección
     // Estas funciones se usan en el botón "Seleccionar" de cada tarjeta (ya no se usa el botón "Inscribirse")
     function selectCourse(courseId) {
         document.getElementById('experience_id').value = courseId;

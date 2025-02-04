@@ -16,18 +16,13 @@ use App\Http\Controllers\EventController;
 // Ruta para obtener los eventos en formato JSON
 Route::get('/api/events', [EventController::class, 'getEvents'])->name('api.events');
 
-// **Frontend Routes**
-Route::get('/', function () {
-    return view('landing'); // Portada o página principal
-})->name('landing'); // Página principal o portada
 
-Route::get('/welcome', function () {
-    return view('welcome'); // Página de inicio
-})->name('welcome'); // Página de inicio
+Route::get('/', function () { return view('landing');})->name('landing'); // Página portada
+
+Route::get('/welcome', function () {return view('welcome'); })->name('welcome'); // Página de inicio
 
 // **Cursos Routes**
 Route::get('/cursos', [CursoController::class, 'index'])->name('cursos.index'); // Listado de cursos
-Route::get('/cursos/{id}', [CursoController::class, 'show'])->name('cursos.show'); // Detalle de curso
 
 Route::get('/inscribirse/{id}', [CursoController::class, 'inscribirse'])->name('inscribirse'); // Inscripción a un curso
 Route::post('/inscribirse', [CursoController::class, 'store'])->name('procesar.inscripcion'); // Procesar inscripción de curso
@@ -41,19 +36,14 @@ Route::post('/contacto', [ContactoController::class, 'store'])->name('contacto.s
 
 // **Catas Routes**
 Route::get('/catas', [CataController::class, 'index'])->name('catas.index'); // Listado de catas
-Route::get('/catas/{id}', [CataController::class, 'show'])->name('catas.show'); // Detalle de cata
+
 
 // **Política de privacidad y Términos y Condiciones**
-Route::get('/politica-de-privacidad', function () {
-    return view('politica-de-privacidad'); // Política de privacidad
-})->name('politica-privacidad');
+Route::get('/politica-de-privacidad', function () {return view('politica-de-privacidad'); })->name('politica-privacidad');// Política de privacidad
 
 Route::get('/terminos-y-condiciones', function () {
     return view('terminos-y-condiciones'); // Términos y condiciones
 })->name('terminos-condiciones');
-
-// **Reseñas del curso**
-Route::get('/cursos/{id}/reseñas', [ResenaController::class, 'index'])->name('cursos.reseñas'); // Reseñas de curso
 
 // **Empresas Routes**
 Route::get('/empresas', [EmpresaController::class, 'index'])->name('empresas.index'); // Listado de empresas
@@ -98,5 +88,5 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 

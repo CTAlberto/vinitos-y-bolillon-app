@@ -54,10 +54,10 @@
                                 </button>
                             </div>
                         </div>
-                    </div> <!-- Cierre del div col-md-8 -->
-                </div> <!-- Cierre del div row g-3 align-items-center -->
-            </div> <!-- Cierre del div p-3 -->
-        </div> <!-- Cierre del div col-12 mb-4 -->
+                    </div> 
+                </div> 
+            </div> 
+        </div>
 
         <!-- Modal -->
         <div class="modal fade" id="modal-{{ $curso->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -74,11 +74,10 @@
             </div>
         </div>
         @endforeach
-    </div> <!-- Cierre del div row -->
-</div> <!-- Cierre del div container -->
+    </div> 
+</div> 
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
