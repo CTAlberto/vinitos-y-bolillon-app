@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pre-Landing</title>
+    <title>South Wines Academy</title>
     <style>
 
         body, html {
