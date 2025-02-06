@@ -10,7 +10,7 @@ class Event extends Model
 
     protected $fillable = [
         'id_category', 'title_event', 'subtitle', 'description', 'content', 'requirements',
-        'ini_date', 'end_date', 'price', 'location', 'capacity', 'language'  ,'latitude', 
+        'ini_date', 'end_date', 'price', 'location', 'capacity', 'language'  ,'latitude',
         'longitude',
     ];
 
