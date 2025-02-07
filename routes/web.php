@@ -62,20 +62,6 @@ Route::get('/calendar/tastings', function () {
 Route::get('/regala-experiencia', [RegalaExperienciaController::class, 'index'])->name('regala-experiencia.index');
 Route::post('/regala-experiencia', [RegalaExperienciaController::class, 'submit'])->name('regala-experiencia.submit'); // Enviar regalo experiencia
 
-// **Admin Routes (Comentadas para acceso solo autenticado)**
-/*
-Route::prefix('admin')->middleware(['auth'])->group(function () {
-    Route::get('/', function () {
-        return view('admin'); // Panel de administración
-    })->name('admin.dashboard');
-
-    Route::get('/cursos', [AdminCursoController::class, 'index'])->name('admin.cursos.index'); // Listado de cursos (admin)
-    Route::get('/cursos/{id}/editar', [AdminCursoController::class, 'edit'])->name('admin.cursos.edit'); // Editar curso (admin)
-
-    Route::get('/contactos', [AdminContactoController::class, 'index'])->name('admin.contactos.index'); // Listado de contactos
-});
-*/
-
 // **Dashboard Routes (Si usas autenticación)**
 Route::get('/dashboard', function () {
     return view('dashboard');
