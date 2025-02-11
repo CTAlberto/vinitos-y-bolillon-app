@@ -7,8 +7,8 @@
         <p class="text-gray-600 mb-4 text-left">{{ $curso->description }}</p>
         <p class="text-gray-600 text-left"><strong>Fecha de inicio:</strong> {{ $curso->ini_date }}</p>
         <p class="text-gray-600 text-left mb-6"><strong>Ubicación:</strong> {{ $curso->location }}</p>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-{{ $curso->id }}" data-lat="{{ $curso->latitude }}" data-lng="{{ $curso->longitude }}" data-aos="zoom-in" data-aos-duration="1000">
-            <i class="fas fa-map-marker-alt"></i> Ubicación
+        <button type="button" class="btn text-white bg-[#8B5C3B] hover:bg-[#6F4E37]" data-bs-toggle="modal" data-bs-target="#modal-{{ $curso->id }}" data-lat="{{ $curso->latitude }}" data-lng="{{ $curso->longitude }}" data-aos="zoom-in" data-aos-duration="1000">
+            <i class="fas fa-map-marker-alt "></i> Ubicación
         </button>
         
         <form id="inscripcionForm" action="{{ route('procesar.inscripcion') }}" method="POST" class="space-y-4">
@@ -33,7 +33,7 @@
             <input type="hidden" name="validation" value="pending">
             <input type="hidden" name="curso_id" value="{{ $curso->id }}">
             
-            <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">Inscribirse</button>
+            <button type="submit" class="w-full bg-[#8B5C3B] hover:bg-[#6F4E37] text-white py-2 rounded-lg ">Inscribirse</button>
         </form>
     </div>
     

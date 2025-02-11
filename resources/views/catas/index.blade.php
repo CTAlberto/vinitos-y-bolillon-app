@@ -23,7 +23,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         @forelse ($catas as $cata)
         <div class="h-full flex">
-            <div class="p-4 bg-gray-100 rounded-lg shadow-md transition-transform transform hover:scale-105 flex flex-col h-full" data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
+            <div class="p-4 bg-gray-100 rounded-lg shadow-md transition-transform transform hover:scale-105 flex flex-col h-full mb-4 " data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
                 <div class="flex flex-col md:flex-row items-center h-full">
                     <!-- Imagen de la cata -->
                     <div class="col-md-4" data-aos="fade-right">
@@ -41,8 +41,8 @@
                         </ul>
                         <!-- Botón de inscripción -->
                         <div class="flex justify-between items-center mt-4">
-                            <span class="text-red-600 font-bold text-lg">${{ $cata->price }}</span>
-                            <a href="{{ route('inscribirse', $cata->id) }}" class="bg-red-500 text-white px-4 py-2 rounded-lg transition-colors duration-300 hover:bg-red-600" data-aos="zoom-in">Inscribirse</a>
+                            <span class="text-white-600 font-bold text-lg">{{ $cata->price }}€</span>
+                            <a href="{{ route('inscribirse', $cata->id) }}" class="bg-[#8B5C3B] hover:bg-[#6F4E37] text-white px-4 py-2 rounded-lg transition-colors duration-300" data-aos="zoom-in">Inscribirse</a>
                         </div>
                     </div>
                 </div>

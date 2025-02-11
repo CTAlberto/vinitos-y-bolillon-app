@@ -31,15 +31,16 @@
         @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/calendar.js'])
 
     </head>
-    <body>
-        <div class="min-h-screen bg-[#F8F9FA] dark:bg-gray-900">
-            <x-header />
+    <body class="flex flex-col mb-10">
+    <div class="flex-grow w-full p-0 pb-10 bg-gradient-to-b from-[#D4A017] via-[#F8F9FA] to-[#D4A017]">
 
-            <div class="flex-grow w-full h-full p-0 bg-gradient-to-b from-[#D4A017] via-[#F8F9FA] to-[#D4A017]">
-                    @yield('main-content')
-            </div>
-            
+        <x-header />
+        <div class="container mx-auto">
+            @yield('main-content')
         </div>
-        <x-footer />
-    </body>
+    </div>
+    <x-footer class="mt-10" />
+
+</body>
+
 </html>

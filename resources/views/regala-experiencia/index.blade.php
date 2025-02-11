@@ -46,7 +46,7 @@
                         <div class="flex justify-end mt-4">
                             <button type="button" 
                                 onclick="selectCourse({{ $curso->id }})" 
-                                class="bg-blue-500 text-white px-4 py-2 rounded-lg transition-colors duration-300 hover:bg-blue-600">
+                                class="bg-[#8B5C3B] hover:bg-[#6F4E37] text-white px-4 py-2 rounded-lg transition-colors duration-300 ">
                                 Seleccionar
                             </button>
                         </div>
@@ -87,7 +87,7 @@
                         <div class="flex justify-end mt-4">
                             <button type="button" 
                                 onclick="selectTasting({{ $cata->id }})" 
-                                class="bg-blue-500 text-white px-4 py-2 rounded-lg transition-colors duration-300 hover:bg-blue-600">
+                                class="bg-[#8B5C3B] hover:bg-[#6F4E37] text-white px-4 py-2 rounded-lg transition-colors duration-300 ">
                                 Seleccionar
                             </button>
                         </div>
